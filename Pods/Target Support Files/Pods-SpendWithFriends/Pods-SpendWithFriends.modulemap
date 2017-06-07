@@ -1,0 +1,6 @@
+framework module Pods_SpendWithFriends {
+  umbrella header "Pods-SpendWithFriends-umbrella.h"
+
+  export *
+  module * { export * }
+}
