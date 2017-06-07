@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A8ED2731EE8A85C005BC20E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8ED2721EE8A85C005BC20E /* Profile.swift */; };
+		2A8ED2751EE8AAC9005BC20E /* Purchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8ED2741EE8AAC9005BC20E /* Purchased.swift */; };
 		542703DF1EE89D3C0093C0C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542703DE1EE89D3C0093C0C9 /* AppDelegate.swift */; };
 		542703E11EE89D3C0093C0C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542703E01EE89D3C0093C0C9 /* ViewController.swift */; };
 		542703E61EE89D3D0093C0C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 542703E51EE89D3D0093C0C9 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		075E2F24E78DB66174423433 /* Pods_SpendWithFriendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendWithFriendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		128476557A35E925BAD4DBEB /* Pods-SpendWithFriendsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriendsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriendsUITests/Pods-SpendWithFriendsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A8ED2721EE8A85C005BC20E /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		2A8ED2741EE8AAC9005BC20E /* Purchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchased.swift; sourceTree = "<group>"; };
 		542703DB1EE89D3C0093C0C9 /* SpendWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		542703DE1EE89D3C0093C0C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		542703E01EE89D3C0093C0C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				2A8ED2721EE8A85C005BC20E /* Profile.swift */,
+				2A8ED2741EE8AAC9005BC20E /* Purchased.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				542703E11EE89D3C0093C0C9 /* ViewController.swift in Sources */,
+				2A8ED2751EE8AAC9005BC20E /* Purchased.swift in Sources */,
 				2A8ED2731EE8A85C005BC20E /* Profile.swift in Sources */,
 				542703DF1EE89D3C0093C0C9 /* AppDelegate.swift in Sources */,
 				B32BCCE71EE8AA710041377E /* MenuViewController.swift in Sources */,
