@@ -16,7 +16,7 @@ class Profile : NSObject {
     fileprivate var pic: UIImage?
     
     
-    fileprivate var runningTabs = [Tab]()  //Array<Tab>?
+    //fileprivate var runningTabs = [Tab]()  //Array<Tab>?
     
     init(name: String, id: String) {
         self.name = name

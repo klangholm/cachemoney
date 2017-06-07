@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "53112E77E382A8E5193C4C4C87493A3F4B8C5150",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DE9CDBEE44ACFC13201A1E36CF4DF519D3EE4E96" : 9223372036854775807,
+    "53112E77E382A8E5193C4C4C87493A3F4B8C5150" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "762A9096-AFCF-4FD9-945C-259B7BEA5C8C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DE9CDBEE44ACFC13201A1E36CF4DF519D3EE4E96" : "cachemoneyc1\/",
+    "53112E77E382A8E5193C4C4C87493A3F4B8C5150" : "cachemoney\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SpendWithFriends",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SpendWithFriends.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/klangholm\/cachemoney.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "53112E77E382A8E5193C4C4C87493A3F4B8C5150"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/klangholm\/cachemoneyc1.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DE9CDBEE44ACFC13201A1E36CF4DF519D3EE4E96"
+    }
+  ]
+}
