@@ -60,6 +60,8 @@ class MessageCell: UITableViewCell {
         ProfPicView.image = meetup.getSender.getPic
         self.ProfPicView.layer.cornerRadius = 0.5 * self.ProfPicView.bounds.size.width
         self.ProfPicView.clipsToBounds = true
+        self.ProfPicView.layer.borderWidth = 3.0
+        self.ProfPicView.layer.borderColor = UIColor.lightGray.cgColor
         self.nameField.text = meetup.getSender.getName
         
         let dateFormatter = DateFormatter()

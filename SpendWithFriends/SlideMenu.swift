@@ -83,7 +83,7 @@ class SlideMenu: UIView {
         self.addSubview(discoverButton)
         self.addSubview(meetupsButton)
         self.addSubview(requestsButton)
-        self.addSubview(settingsButton)
+        //self.addSubview(settingsButton)
         
         
     }
