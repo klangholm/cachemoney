@@ -60,9 +60,8 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         
         if purchases.count == 0 {
             overlayView.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 0/255, blue: 0/255, alpha: 0.9)
-            overlayView.layer.zPosition = 1000
-            UIApplication.shared.keyWindow?.addSubview(overlayView)
             
+            SwiftSpinner.show("Discovering new people...")
             
         }
     }
@@ -74,9 +73,7 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
     }
     
     func didRetrieveGeoData(m: [Merchant]) {
-        overlayView.isHidden = true
-        overlayView.alpha = 0
-        overlayView.removeFromSuperview()
+        SwiftSpinner.hide()
         self.merchants = m
         addPins()
     }

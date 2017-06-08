@@ -60,7 +60,7 @@ class ProfileTableViewController: UITableViewController {
         cell.configureCell(profile: profile)
         cell.tapAction = { [weak self] (cell) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "MeetUpViewController")
+            let controller = storyboard.instantiateViewController(withIdentifier: "meetUpViewController") as! MeetUpViewController
             self?.present(controller, animated: true, completion: nil)
         }
 
