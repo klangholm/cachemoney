@@ -83,8 +83,8 @@ class MainViewController: UIViewController, SlideMenuDelegate {
         //set up map controller
         mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
         
-        mapView = mapViewController?.view
-        mapView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        //mapView = mapViewController?.view
+        //mapView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.view.backgroundColor = UIColor.green
         let map = MKMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.view.addSubview(map)
