@@ -16,6 +16,8 @@ class ProfileCell: UITableViewCell {
     
     @IBOutlet weak var weekday: UILabel!
     
+    @IBOutlet weak var meetUpButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +30,6 @@ class ProfileCell: UITableViewCell {
     }
     
     func configureCell(profile: Profile){
-        
         profilePic.image = profile.getPic
         self.profilePic.layer.cornerRadius = 0.5 * self.profilePic.bounds.size.width
         self.profilePic.clipsToBounds = true

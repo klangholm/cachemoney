@@ -18,6 +18,7 @@
 		542703FF1EE89D3D0093C0C9 /* SpendWithFriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542703FE1EE89D3D0093C0C9 /* SpendWithFriendsUITests.swift */; };
 		542955DB1EE8F7F100AB9E02 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542955DA1EE8F7F100AB9E02 /* ProfileTableViewController.swift */; };
 		542955DD1EE900EB00AB9E02 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 542955DC1EE900EB00AB9E02 /* Unknown.png */; };
+		542955DF1EE9127D00AB9E02 /* MeetUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542955DE1EE9127D00AB9E02 /* MeetUpTableViewController.swift */; };
 		545BE0FB143C7D6B3050714D /* Pods_SpendWithFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AEA359FF9CBE421609D6D6C /* Pods_SpendWithFriendsUITests.framework */; };
 		686FBAC1BC9FEB02825410F6 /* Pods_SpendWithFriendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075E2F24E78DB66174423433 /* Pods_SpendWithFriendsTests.framework */; };
 		B32BCCEE1EE8B0910041377E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BCCED1EE8B0910041377E /* MenuViewController.swift */; };
@@ -75,6 +76,7 @@
 		542704001EE89D3D0093C0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		542955DA1EE8F7F100AB9E02 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		542955DC1EE900EB00AB9E02 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unknown.png; path = Assets.xcassets/Unknown.png; sourceTree = "<group>"; };
+		542955DE1EE9127D00AB9E02 /* MeetUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetUpTableViewController.swift; sourceTree = "<group>"; };
 		5C2E8AA70854407B840A0F0E /* Pods-SpendWithFriendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriendsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriendsTests/Pods-SpendWithFriendsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6086F130A349DBF813F3ED72 /* Pods-SpendWithFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriendsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriendsUITests/Pods-SpendWithFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6AEA359FF9CBE421609D6D6C /* Pods_SpendWithFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendWithFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +183,7 @@
 				CC28087F1EE8EB8F00FF800D /* SlideMenu.swift */,
 				B32BCCED1EE8B0910041377E /* MenuViewController.swift */,
 				CC2808751EE8E98900FF800D /* Main.storyboard */,
+				542955DE1EE9127D00AB9E02 /* MeetUpTableViewController.swift */,
 				542703E51EE89D3D0093C0C9 /* Assets.xcassets */,
 				542955DC1EE900EB00AB9E02 /* Unknown.png */,
 				542703E71EE89D3D0093C0C9 /* LaunchScreen.storyboard */,
@@ -515,6 +518,7 @@
 				B3C213221EE8FA1000C0E4E8 /* LoginViewController.swift in Sources */,
 				2A8ED2731EE8A85C005BC20E /* Profile.swift in Sources */,
 				B3C213231EE8FA1000C0E4E8 /* Merchant.swift in Sources */,
+				542955DF1EE9127D00AB9E02 /* MeetUpTableViewController.swift in Sources */,
 				542703DF1EE89D3C0093C0C9 /* AppDelegate.swift in Sources */,
 				CC2808831EE8EB8F00FF800D /* MapViewController.swift in Sources */,
 			);
