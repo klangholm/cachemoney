@@ -14,7 +14,7 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad(){
         self.tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         self.tableView.rowHeight = 85.0
-        profiles = [Profile(name: "paul", id: "test")]
+        profiles = [Profile(name: "paul", custId: "test", username: "test username", password: "test password")]
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations

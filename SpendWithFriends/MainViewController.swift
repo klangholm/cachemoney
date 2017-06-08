@@ -30,6 +30,15 @@ class MainViewController: UIViewController, SlideMenuDelegate {
     var menu: SlideMenu?
     var selectedView: selectedMode = .discover
     
+    var containerView:UIView = {
+        let v = UIView()
+        
+        v.frame = CGRect.zero
+        
+        v.isHidden = true
+        return v
+    }()
+    
     @IBOutlet weak var menuButton: UIButton!
     
     
@@ -82,7 +91,9 @@ class MainViewController: UIViewController, SlideMenuDelegate {
         
         meetupsView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         
-        
+        containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        containerView.backgroundColor = UIColor.yellow
+        self.view.addSubview(containerView)
         
     }
 
@@ -96,15 +107,22 @@ class MainViewController: UIViewController, SlideMenuDelegate {
         switch toStatus {
         case .discover:
             self.navigationItem.title = "Discover"
+            containerView.isHidden = true
             break
         case .meetups:
             self.navigationItem.title = "Meetups"
+            containerView.backgroundColor = UIColor.blue
+            containerView.isHidden = false
             break
         case .requests:
             self.navigationItem.title = "Requests"
+            containerView.backgroundColor = UIColor.red
+            containerView.isHidden = false
             break
         case .settings:
             self.navigationItem.title = "Settings"
+            containerView.backgroundColor = UIColor.cyan
+            containerView.isHidden = false
             break
         }
     }
