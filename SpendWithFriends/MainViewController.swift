@@ -16,10 +16,11 @@ public enum selectedMode {
     case settings
 }
 
-class MainViewController: UIViewController, SlideMenuDelegate {
+class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var mapViewController: MapViewController?
     var mapView: UIView?
+    var locationManager = CLLocationManager()
     
     var meetupsView = UIView()
     
@@ -29,7 +30,7 @@ class MainViewController: UIViewController, SlideMenuDelegate {
     
     var menu: SlideMenu?
     var selectedView: selectedMode = .discover
-    
+    var dataHandler = DataHandler()
     var containerView:UIView = {
         let v = UIView()
         
@@ -43,11 +44,10 @@ class MainViewController: UIViewController, SlideMenuDelegate {
     
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
         //self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationItem.title = "Discover"
-
+        dataHandler.getPurchases()
         
     }
     
@@ -64,7 +64,7 @@ class MainViewController: UIViewController, SlideMenuDelegate {
         let barButton = UIBarButtonItem(customView: mButton)
         self.navigationItem.setLeftBarButton(barButton, animated: true)
         self.navigationController?.title = "Discover"
-    
+        
         
         setUpControllers()
         setUpMenu()
@@ -83,11 +83,45 @@ class MainViewController: UIViewController, SlideMenuDelegate {
         //set up map controller
         mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
         
-        //mapView = mapViewController?.view
-        //mapView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        mapView = mapViewController?.view
+        mapView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.view.backgroundColor = UIColor.green
         let map = MKMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.view.addSubview(map)
+        map.delegate = self
+        map.showsUserLocation = true
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        
+        //Check for Location Services
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+        }
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        if let loc = locationManager.location?.coordinate {
+            
+            let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 200, 200)
+            map.setRegion(viewRegion, animated: true)
+        }
+        else {
+            let loc = CLLocationCoordinate2D(latitude: 37.5407, longitude: -77.4360)
+            
+            let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 200, 200)
+            map.setRegion(viewRegion, animated: true)
+        }
+        
+        
+        DispatchQueue.main.async {
+            self.locationManager.startUpdatingLocation()
+        }
+        
         
         meetupsView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         
@@ -96,7 +130,7 @@ class MainViewController: UIViewController, SlideMenuDelegate {
         self.view.addSubview(containerView)
         
     }
-
+    
     @IBAction func didTapMenuButton() {
         self.menu?.toggle()
     }
@@ -126,6 +160,6 @@ class MainViewController: UIViewController, SlideMenuDelegate {
             break
         }
     }
-
-
+    
+    
 }
