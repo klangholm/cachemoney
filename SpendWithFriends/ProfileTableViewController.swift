@@ -10,8 +10,11 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
     
-    var profiles = [Profile]?
-    override func viewDidLoad() {
+    var profiles: [Profile]?
+    override func viewDidLoad(){
+        self.tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
+        self.tableView.rowHeight = 85.0
+        profiles = [Profile(name: "paul", id: "test")]
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -19,6 +22,10 @@ class ProfileTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "Test"
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,15 +45,16 @@ class ProfileTableViewController: UITableViewController {
         return profiles!.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let profile = profiles![indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+        cell.configureCell(profile: profile)
         // Configure the cell...
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

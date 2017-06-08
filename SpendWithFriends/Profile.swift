@@ -13,7 +13,7 @@ class Profile : NSObject {
     
     fileprivate var name: String
     fileprivate var id: String
-    fileprivate var pic: UIImage?
+    fileprivate var pic: UIImage = UIImage(named: "Unknown.png")!
     
     
     //fileprivate var runningTabs = [Tab]()  //Array<Tab>?
@@ -37,7 +37,7 @@ class Profile : NSObject {
     }
     
     var getPic: UIImage {
-        return self.pic!
+        return self.pic
     }
     
     
