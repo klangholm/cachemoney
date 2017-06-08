@@ -61,17 +61,9 @@ class ProfileTableViewController: UITableViewController {
             let controller = storyboard.instantiateViewController(withIdentifier: "MeetUpViewController")
             self?.present(controller, animated: true, completion: nil)
         }
-        //cell.meetUpButton.isUserInteractionEnabled = true
-        //cell.meetUpButton.tag = indexPath.row
-        //cell.meetUpButton.addTarget(self, action: #selector(ProfileTableViewController.meetUpButtonTapped(_:)), for: .touchUpInside)
 
         return cell
     }
- 
-    //func meetUpButtonTapped(_ button: UIButton){
-    //    let meetupVC = MeetUpViewController(nibName: "SigninVC", bundle: nil)
-     //   self.present(meetupVC, animated: true, completion: nil)
-    //}
 
     /*
     // Override to support conditional editing of the table view.
