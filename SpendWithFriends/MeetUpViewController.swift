@@ -59,6 +59,7 @@ class MeetUpViewController: UIViewController, addMeetUpDelegate {
         let minutes = calendar.component(.minute, from: date)
         return String(hour)+":"+String(minutes)
     }
+
     
     func addMeetUpDeclined() {
         DispatchQueue.main.async() {
@@ -73,6 +74,10 @@ class MeetUpViewController: UIViewController, addMeetUpDelegate {
     func addMeetUpAuthorized() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")
         self.navigationController?.show(vc!, sender: nil)
+    }
+    
+    @IBAction func backButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {

@@ -22,6 +22,7 @@ class ProfileTableViewController: UITableViewController {
         //profiles?.append(Profile(name: "paul", custId: "test", username: "test username", password: "test password"))
         self.tableView.reloadData()
         
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,7 +32,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = "Most Frequent Users at "//+selectedMerchant.name
+        self.navigationItem.title = "Most Frequent Users at \(self.selectedMerchant.name)"//+selectedMerchant.name
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +59,7 @@ class ProfileTableViewController: UITableViewController {
         cell.configureCell(profile: profile)
         cell.tapAction = { [weak self] (cell) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "MeetUpViewController")
+            let controller = storyboard.instantiateViewController(withIdentifier: "meetUpViewController") as! MeetUpViewController
             self?.present(controller, animated: true, completion: nil)
         }
 

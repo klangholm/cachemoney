@@ -29,6 +29,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZEN-Fq-RcD">
+                                <rect key="frame" x="86" y="485" width="203" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="black_plus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-fk-NTC">
                                 <rect key="frame" x="115.5" y="136" width="144.5" height="144.5"/>
                                 <constraints>
@@ -50,7 +56,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="createAccountButtonPressed:" destination="Iev-CZ-Upo" eventType="touchUpInside" id="CJf-o8-J69"/>
+                                    <action selector="continueButtonPressed:" destination="Iev-CZ-Upo" eventType="touchUpInside" id="nNH-lM-KPW"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JohnDoe123" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o05-Ox-R4c">
@@ -184,6 +190,23 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Bvi-fk-NTC" firstAttribute="top" secondItem="8b3-0o-inI" secondAttribute="bottom" constant="33" id="0CD-ZZ-Bkl"/>
+                            <constraint firstItem="Jjh-cP-dfz" firstAttribute="top" secondItem="Bvi-fk-NTC" secondAttribute="bottom" constant="23" id="2QX-ht-vBI"/>
+                            <constraint firstItem="qZ2-jE-fZV" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="70" id="6ZF-5F-gcA"/>
+                            <constraint firstItem="oq7-p9-q7A" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="140" id="9gs-IY-nLM"/>
+                            <constraint firstItem="bLn-kH-n3L" firstAttribute="top" secondItem="oq7-p9-q7A" secondAttribute="bottom" constant="30" id="ACX-g0-iQJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oq7-p9-q7A" secondAttribute="trailing" constant="140" id="Hbx-CI-40X"/>
+                            <constraint firstItem="o05-Ox-R4c" firstAttribute="top" secondItem="qZ2-jE-fZV" secondAttribute="bottom" constant="16" id="Neh-Dw-lI2"/>
+                            <constraint firstItem="Bvi-fk-NTC" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="75" id="Npz-h3-IdH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bvi-fk-NTC" secondAttribute="trailing" constant="75" id="Ptk-4M-Ljm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qZ2-jE-fZV" secondAttribute="trailing" constant="70" id="aTs-93-rbq"/>
+                            <constraint firstItem="8b3-0o-inI" firstAttribute="top" secondItem="aR8-5w-dem" secondAttribute="bottom" constant="46" id="bCS-zc-ADI"/>
+                            <constraint firstItem="Jjh-cP-dfz" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="70" id="buf-b9-Not"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jjh-cP-dfz" secondAttribute="trailing" constant="70" id="co8-CM-Y6X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o05-Ox-R4c" secondAttribute="trailing" constant="70" id="eWW-l4-5Ix"/>
+                            <constraint firstItem="qZ2-jE-fZV" firstAttribute="top" secondItem="Jjh-cP-dfz" secondAttribute="bottom" constant="17" id="eWx-Kq-gCt"/>
+                            <constraint firstItem="oq7-p9-q7A" firstAttribute="top" secondItem="ZEN-Fq-RcD" secondAttribute="bottom" constant="92" id="fdM-tn-Sje"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZEN-Fq-RcD" secondAttribute="trailing" constant="70" id="fkX-mP-akD"/>
                             <constraint firstItem="Bvi-fk-NTC" firstAttribute="top" secondItem="8b3-0o-inI" secondAttribute="bottom" constant="7.5" id="0CD-ZZ-Bkl"/>
                             <constraint firstItem="oq7-p9-q7A" firstAttribute="leading" secondItem="Jjh-cP-dfz" secondAttribute="leading" id="0U4-r4-akx"/>
                             <constraint firstItem="zqM-1q-CCJ" firstAttribute="top" secondItem="xsg-dx-8Ls" secondAttribute="bottom" constant="37" id="0UN-ag-ba2"/>
@@ -233,7 +256,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstName" destination="Jjh-cP-dfz" id="NuN-LW-u45"/>
+                        <outlet property="firstName" destination="Jjh-cP-dfz" id="BVe-5b-uul"/>
                         <outlet property="lastName" destination="qZ2-jE-fZV" id="WyW-6g-rAr"/>
                         <outlet property="password" destination="ZEN-Fq-RcD" id="cON-dH-yIb"/>
                         <outlet property="profilePicture" destination="Bvi-fk-NTC" id="T4A-zf-KlN"/>
@@ -469,10 +492,10 @@
             </objects>
             <point key="canvasLocation" x="1646" y="801"/>
         </scene>
-        <!--Meet Up Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="vZi-aN-xOq">
             <objects>
-                <tableViewController id="jCW-be-RZh" customClass="MeetUpTableViewController" customModule="SpendWithFriends" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jCW-be-RZh" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kA5-mD-mb4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

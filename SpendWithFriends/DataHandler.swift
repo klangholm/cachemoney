@@ -19,9 +19,15 @@ protocol addUserDelegate {
     func addUserDeclined()
 }
 
+
 protocol addMeetUpDelegate {
     func addMeetUpAuthorized()
     func addMeetUpDeclined()
+}
+
+protocol MapDataDelegate {
+    func didRetrieveUserPurchaseData(purchases: [Purchase])
+    func didRetrieveGeoData(m: [Merchant])
 }
 
 class DataHandler {
@@ -32,7 +38,11 @@ class DataHandler {
     
     var auDelegate: addUserDelegate?
     
+
     var amDelegate: addMeetUpDelegate?
+
+    var mapDelegate: MapDataDelegate?
+
     
     init(id: String) {
         self.user_id = id
@@ -53,7 +63,7 @@ class DataHandler {
     }
     
     func getPurchases(){
-        let temp = [Purchase]()
+        var purchases = [Purchase]()
         
         let url_string = "http://lukeporupski.com/newPhp/getPurchasesOfUser.php?id=\(user_id)"
         let url = URL(string: url_string)
@@ -61,38 +71,21 @@ class DataHandler {
             guard let data = data, error == nil else { return }
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                let posts = json["posts"] as? [[String: Any]] ?? []
-                print(posts)
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                let temp = json as? [[String: String]]
+                for purchase in temp! {
+                    let newPurchase = Purchase(merchID: purchase["merchant_id"]!, date: purchase["purchase_date"]!, amt: purchase["amount"]!, desc: purchase["description"]!)
+                    purchases.append(newPurchase)
+                    if purchases.count == temp?.count {
+                        self.mapDelegate?.didRetrieveUserPurchaseData(purchases: purchases)
+                        
+                    }
+                }
+                
             } catch let error as NSError {
                 print(error)
             }
         }).resume()
-        
-        
-        /*
-        let urlString = "https://api.forecast.io/forecast/apiKey/37.5673776,122.048951"
-        
-        let url = URL(string: urlString)
-        URLSession.shared.dataTask(with:url!) { (data, response, error) in
-            if error != nil {
-                print(error)
-            } else {
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                    let currentConditions = parsedData["currently"] as! [String:Any]
-                    
-                    print(currentConditions)
-                    
-                    let currentTemperatureF = currentConditions["temperature"] as! Double
-                    print(currentTemperatureF)
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            
-            }.resume()*/
         
     }
     
@@ -100,6 +93,53 @@ class DataHandler {
         let temp = [Profile]()
         
         return temp
+    }
+    
+    func getMerchantsFromPurchases(purchases: [Purchase]) {
+        var ms = [Merchant]()
+        
+        for p in purchases {
+            
+            let url_string = "http://lukeporupski.com/newPhp/getMerchantFromID.php?id=\(p.merchant_id)"
+            
+            let url = URL(string: url_string)
+            var count = 0
+            URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
+                guard let data = data, error == nil else { return }
+                
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    if let vals = json as? [[String:String]] {
+                        let temp = vals[0] as! [String:String]
+                        
+                        if let lng = temp["lng"] {
+                            if let lat = temp["lat"] {
+                                let newMerchant = Merchant(name: temp["name"]!, merchantId: temp["MerchantID"]!, category: temp["category"]!, latitude: lat, longitude: lng)
+                                ms.append(newMerchant)
+                                if ms.count == purchases.count - count{
+                                    self.mapDelegate?.didRetrieveGeoData(m: ms)
+                                }
+                            }
+                            else {
+                                count = count + 1
+                            }
+                        }
+                        else {
+                            count = count + 1
+                        }
+                        
+                        
+                        
+                    }
+                    
+                } catch let error as NSError {
+                    print(error)
+                }
+            }).resume()
+            
+        }
+        
+        
     }
     
     func getMerchantForID(id: String) {
@@ -123,7 +163,9 @@ class DataHandler {
     }
     
     
-    
+    func getProfilesForMerchant(id: String) {
+        let temp = [Profile]()
+    }
     
     
     func authorizeLogin(username: String, password: String) {

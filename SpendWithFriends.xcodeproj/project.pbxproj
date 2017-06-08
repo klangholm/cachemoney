@@ -40,6 +40,9 @@
 		CC2808871EE8EB8F00FF800D /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC28087E1EE8EB8F00FF800D /* ProfileCell.xib */; };
 		CC2808881EE8EB8F00FF800D /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC28087F1EE8EB8F00FF800D /* SlideMenu.swift */; };
 		CC28088A1EE8F10500FF800D /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2808891EE8F10500FF800D /* DataHandler.swift */; };
+		CC967AF11EE977C800F6F6E5 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC967AF01EE977C800F6F6E5 /* CustomPointAnnotation.swift */; };
+		CC967AF31EE9797400F6F6E5 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC967AF21EE9797400F6F6E5 /* CustomAnnotationView.swift */; };
+		CC967B001EE9846A00F6F6E5 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC967AFF1EE9846A00F6F6E5 /* SwiftSpinner.swift */; };
 		E1E711372D2AF1FE3202EBB3 /* Pods_SpendWithFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B38CED6B79E8EF35599CB4 /* Pods_SpendWithFriends.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +108,9 @@
 		CC28087E1EE8EB8F00FF800D /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		CC28087F1EE8EB8F00FF800D /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenu.swift; sourceTree = "<group>"; };
 		CC2808891EE8F10500FF800D /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		CC967AF01EE977C800F6F6E5 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		CC967AF21EE9797400F6F6E5 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		CC967AFF1EE9846A00F6F6E5 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		E2095179B34F0A992F821924 /* Pods-SpendWithFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriends.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriends/Pods-SpendWithFriends.release.xcconfig"; sourceTree = "<group>"; };
 		F0B38CED6B79E8EF35599CB4 /* Pods_SpendWithFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendWithFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -175,6 +181,7 @@
 				B3C2131E1EE8FA1000C0E4E8 /* CreateAccountViewController.swift */,
 				B3C2131F1EE8FA1000C0E4E8 /* LoginViewController.swift */,
 				B3C213201EE8FA1000C0E4E8 /* Merchant.swift */,
+				CC967AFF1EE9846A00F6F6E5 /* SwiftSpinner.swift */,
 				542955DA1EE8F7F100AB9E02 /* ProfileTableViewController.swift */,
 				2A8ED2711EE8A836005BC20E /* Model */,
 				542703DE1EE89D3C0093C0C9 /* AppDelegate.swift */,
@@ -183,6 +190,8 @@
 				CC2808791EE8EB8F00FF800D /* MainViewController.swift */,
 				CC28087A1EE8EB8F00FF800D /* MapViewController.swift */,
 				CC2808891EE8F10500FF800D /* DataHandler.swift */,
+				CC967AF01EE977C800F6F6E5 /* CustomPointAnnotation.swift */,
+				CC967AF21EE9797400F6F6E5 /* CustomAnnotationView.swift */,
 				CC28087C1EE8EB8F00FF800D /* MeetUpViewController.swift */,
 				CC28087D1EE8EB8F00FF800D /* ProfileCell.swift */,
 				2AB822861EE8F5FC00C6B4F5 /* MessageCell.swift */,
@@ -523,6 +532,8 @@
 				CC2808851EE8EB8F00FF800D /* MeetUpViewController.swift in Sources */,
 				CC2808821EE8EB8F00FF800D /* MainViewController.swift in Sources */,
 				CC2808841EE8EB8F00FF800D /* MeetUp.swift in Sources */,
+				CC967AF11EE977C800F6F6E5 /* CustomPointAnnotation.swift in Sources */,
+				CC967AF31EE9797400F6F6E5 /* CustomAnnotationView.swift in Sources */,
 				CC2808861EE8EB8F00FF800D /* ProfileCell.swift in Sources */,
 				2AB822881EE8F5FC00C6B4F5 /* MessageCell.swift in Sources */,
 				CC28088A1EE8F10500FF800D /* DataHandler.swift in Sources */,
@@ -533,6 +544,7 @@
 				B3C213221EE8FA1000C0E4E8 /* LoginViewController.swift in Sources */,
 				2A8ED2731EE8A85C005BC20E /* Profile.swift in Sources */,
 				B3C213231EE8FA1000C0E4E8 /* Merchant.swift in Sources */,
+				CC967B001EE9846A00F6F6E5 /* SwiftSpinner.swift in Sources */,
 				542955DF1EE9127D00AB9E02 /* MeetUpTableViewController.swift in Sources */,
 				542703DF1EE89D3C0093C0C9 /* AppDelegate.swift in Sources */,
 				CC2808831EE8EB8F00FF800D /* MapViewController.swift in Sources */,
