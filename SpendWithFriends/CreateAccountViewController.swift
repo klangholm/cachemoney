@@ -8,23 +8,24 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, addUserDelegate {
 
     
     var data : NSMutableData = NSMutableData()
     
+        
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var profilePicture: UIImageView!
-    
-    @IBAction func continueButtonPressed(_ sender: Any) {
+    @IBAction func createAccountButtonPressed(_ sender: Any) {
         if (firstName.text?.isEmpty ?? true || lastName.text?.isEmpty ?? true || username.text?.isEmpty ?? true || password.text?.isEmpty ?? true) {
             let dialog = UIAlertController(title: "Error", message: "Blank text fields are forbidden", preferredStyle: UIAlertControllerStyle.alert)
             present(dialog,animated: false, completion: nil)
             dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in print("logic?")}))
         }
+        addUser()
 
     }
     override func viewDidLoad() {
@@ -44,8 +45,8 @@ class CreateAccountViewController: UIViewController {
     
     func addUser() {
         let dh = DataHandler(id: "")
-        dh.auDelegate = self as! addUserDelegate
-        dh.addUser(name: firstName.text! + " " + lastName.text!, username: username.text!, password: password.text!, picLink: "")
+        dh.auDelegate = self
+        dh.addUser(name: firstName.text! + "%20" + lastName.text!, username: username.text!, password: password.text!)
     }
     
     func URLSession(session: URLSession, dataTask: URLSessionDataTask, didReceiveData data: NSData) {

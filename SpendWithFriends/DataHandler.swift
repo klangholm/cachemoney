@@ -120,7 +120,7 @@ class DataHandler {
     
     
     func authorizeLogin(username: String, password: String) {
-        let loginURL: String = "http://lukeporupski.com/newPhp/checkPass.php?Name=" + username + "&Password=" + password
+        let loginURL: String = "http://lukeporupski.com/newPhp/checkPass.php?username=" + username + "&password=" + password
         let url: URL = URL(string: loginURL)!
         let urlRequest = URLRequest(url: url as URL)
         let configuration = URLSessionConfiguration.default
@@ -147,12 +147,12 @@ class DataHandler {
         task.resume()
     }
     
-    func addUser(name: String, username: String, password: String, picLink: String) {
-        var signUpURL: String = "http://lukeporupski.com/newPhp/addUsers.php?Username=" + username + "&Password=" + password + "&Name=" + name
-        if (picLink != "") {
-            signUpURL += "&PicLink=" + picLink
-        }
-        
+    func addUser(name: String, username: String, password: String) {
+        let signUpURL: String = "http://lukeporupski.com/newPhp/addUsers.php?username=" + username + "&password=" + password + "&name=" + name
+        //if (picLink != "") {
+          //  signUpURL += "&PicLink=" + picLink
+        //}
+        //let signUpURL: String = "http://lukeporupski.com/newPhp/addUsers.php?Username=frog&Password=frogger&Name=devin"
         let url: URL = URL(string: signUpURL)!
         let urlRequest = URLRequest(url: url as URL)
         let configuration = URLSessionConfiguration.default
@@ -169,7 +169,7 @@ class DataHandler {
             let sizee = data!.count
             if (sizee == 1) {
                 self.auDelegate?.addUserAuthorized()
-                //print("good shit")
+                print("good shit")
             } else {
                 self.auDelegate?.addUserDeclined()
             }
