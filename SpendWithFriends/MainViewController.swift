@@ -16,17 +16,23 @@ public enum selectedMode {
     case settings
 }
 
-class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
+class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate, CLLocationManagerDelegate, MapDataDelegate {
     
     var mapViewController: MapViewController?
     var mapView: UIView?
     var locationManager = CLLocationManager()
+    
+    var overlayView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     
     var meetupsView = UIView()
     
     var requestsView = UIView()
     
     var settingsView = UIView()
+    
+    var map: MKMapView?
+    
+    var purchases = [Purchase]()
     
     var menu: SlideMenu?
     var selectedView: selectedMode = .discover
@@ -42,13 +48,40 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
     
     @IBOutlet weak var menuButton: UIButton!
     
+    var merchants = [Merchant]()
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
         //self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationItem.title = "Discover"
+        dataHandler.mapDelegate = self
         dataHandler.getPurchases()
         
+        if purchases.count == 0 {
+            overlayView.backgroundColor = UIColor(colorLiteralRed: 222/255, green: 222/255, blue: 222/255, alpha: 0.8)
+            overlayView.layer.zPosition = 1000
+            self.view.addSubview(overlayView)
+            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            activityIndicator.hidesWhenStopped = false
+            activityIndicator.center = overlayView.center
+            activityIndicator.startAnimating()
+            overlayView.addSubview(activityIndicator)
+        }
+        
+        
+    }
+    
+    func didRetrieveUserPurchaseData(purchases: [Purchase]){
+        self.purchases = purchases
+        self.dataHandler.getMerchantsFromPurchases(purchases: purchases)
+        self.addPins()
+    }
+    
+    func didRetrieveGeoData(m: [Merchant]) {
+        overlayView.isHidden = true
+        self.merchants = m
+        addPins()
     }
     
     override func viewDidLoad() {
@@ -71,6 +104,15 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         
     }
     
+    func addPins() {
+        for merchant in merchants {
+            let point = MKPointAnnotation()
+            point.title = merchant.name
+            point.coordinate = CLLocationCoordinate2D(latitude: merchant.latitude, longitude: merchant.longitude)
+            self.map!.addAnnotation(point)
+        }
+    }
+    
     func setUpMenu() {
         menu = SlideMenu(frame: CGRect(x: -140, y: 0, width: 140, height: self.view.frame.height))
         menu?.layer.zPosition = 4
@@ -86,10 +128,10 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         mapView = mapViewController?.view
         mapView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.view.backgroundColor = UIColor.green
-        let map = MKMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        self.view.addSubview(map)
-        map.delegate = self
-        map.showsUserLocation = true
+        map = MKMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        self.view.addSubview(map!)
+        map?.delegate = self
+        map?.showsUserLocation = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         
@@ -108,13 +150,13 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         if let loc = locationManager.location?.coordinate {
             
             let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 200, 200)
-            map.setRegion(viewRegion, animated: true)
+            map?.setRegion(viewRegion, animated: true)
         }
         else {
             let loc = CLLocationCoordinate2D(latitude: 37.5407, longitude: -77.4360)
             
             let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 200, 200)
-            map.setRegion(viewRegion, animated: true)
+            map?.setRegion(viewRegion, animated: true)
         }
         
         
