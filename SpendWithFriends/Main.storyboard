@@ -35,17 +35,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-<<<<<<< HEAD
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="black_plus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-fk-NTC">
                                 <rect key="frame" x="115.5" y="136" width="144.5" height="144.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bvi-fk-NTC" secondAttribute="height" multiplier="1:1" id="1tD-8N-dza"/>
                                     <constraint firstAttribute="width" constant="144.5" id="KB0-mj-BYn"/>
                                 </constraints>
-=======
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-fk-NTC">
-                                <rect key="frame" x="91" y="199.5" width="193" height="119.5"/>
->>>>>>> parent of 98e332c... Bull fucking shit
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq7-p9-q7A">
                                 <rect key="frame" x="84.5" y="564" width="206" height="73"/>
@@ -212,7 +207,8 @@
                             <constraint firstItem="qZ2-jE-fZV" firstAttribute="top" secondItem="Jjh-cP-dfz" secondAttribute="bottom" constant="17" id="eWx-Kq-gCt"/>
                             <constraint firstItem="oq7-p9-q7A" firstAttribute="top" secondItem="ZEN-Fq-RcD" secondAttribute="bottom" constant="92" id="fdM-tn-Sje"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZEN-Fq-RcD" secondAttribute="trailing" constant="70" id="fkX-mP-akD"/>
-                            <constraint firstItem="Bvi-fk-NTC" firstAttribute="top" secondItem="8b3-0o-inI" secondAttribute="bottom" constant="7.5" id="0CD-ZZ-Bkl"/                            <constraint firstItem="oq7-p9-q7A" firstAttribute="leading" secondItem="Jjh-cP-dfz" secondAttribute="leading" id="0U4-r4-akx"/>
+                            <constraint firstItem="Bvi-fk-NTC" firstAttribute="top" secondItem="8b3-0o-inI" secondAttribute="bottom" constant="7.5" id="0CD-ZZ-Bkl"/>
+                            <constraint firstItem="oq7-p9-q7A" firstAttribute="leading" secondItem="Jjh-cP-dfz" secondAttribute="leading" id="0U4-r4-akx"/>
                             <constraint firstItem="zqM-1q-CCJ" firstAttribute="top" secondItem="xsg-dx-8Ls" secondAttribute="bottom" constant="37" id="0UN-ag-ba2"/>
                             <constraint firstItem="rMd-2R-YIc" firstAttribute="top" secondItem="Jjh-cP-dfz" secondAttribute="bottom" constant="7" id="19h-3T-ysJ"/>
                             <constraint firstItem="o05-Ox-R4c" firstAttribute="centerX" secondItem="FKK-jE-dcp" secondAttribute="centerX" id="1D9-Cd-S6U"/>
