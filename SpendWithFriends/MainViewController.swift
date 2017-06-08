@@ -20,6 +20,13 @@ class MainViewController: UIViewController, SlideMenuDelegate {
     
     var mapViewController: MapViewController?
     var mapView: UIView?
+    
+    var meetupsView = UIView()
+    
+    var requestsView = UIView()
+    
+    var settingsView = UIView()
+    
     var menu: SlideMenu?
     var selectedView: selectedMode = .discover
     
@@ -71,19 +78,16 @@ class MainViewController: UIViewController, SlideMenuDelegate {
         mapView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.view.backgroundColor = UIColor.green
         let map = MKMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        self.view.addSubview(map)
+        
+        meetupsView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         
         
-        //self.view.addSubview(map)
         
     }
 
     @IBAction func didTapMenuButton() {
         self.menu?.toggle()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     

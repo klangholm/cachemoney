@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Purchased: NSObject {
+class Purchase: NSObject {
     var merchant_id: String
     var purchase_date: String
     var amount: String
