@@ -147,13 +147,11 @@ class DataHandler {
         task.resume()
     }
     
-    func addUser(name: String, username: String, password: String) {
-        let signUpURL: String = "http://lukeporupski.com/newPhp/addUsers.php?username=" + username + "&password=" + password + "&name=" + name
-        //print(badSignUp)
-        //let signUpURL: String = "http://lukeporupski.com/newPhp/addUsers.php?Username=frog&Password=frogger&Name=devin"
-        //if (picLink != "") {
-            //signUpURL += "&PicLink=" + picLink
-       // }
+    func addUser(name: String, username: String, password: String, picLink: String) {
+        var signUpURL: String = "http://lukeporupski.com/newPhp/addUsers.php?Username=" + username + "&Password=" + password + "&Name=" + name
+        if (picLink != "") {
+            signUpURL += "&PicLink=" + picLink
+        }
         
         let url: URL = URL(string: signUpURL)!
         let urlRequest = URLRequest(url: url as URL)
@@ -171,8 +169,7 @@ class DataHandler {
             let sizee = data!.count
             if (sizee == 1) {
                 self.auDelegate?.addUserAuthorized()
-                print("good shit")
-                //print(badSignUp)
+                //print("good shit")
             } else {
                 self.auDelegate?.addUserDeclined()
             }

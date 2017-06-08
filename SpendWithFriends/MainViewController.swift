@@ -1,4 +1,3 @@
-
 //
 //  MainViewController.swift
 //  SpendWithFriends
