@@ -18,8 +18,8 @@ class ProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         self.tableView.rowHeight = 95.0
-        profiles = [Profile(name: "paul", custId: "test", username: "test username", password: "test password")]
-        profiles?.append(Profile(name: "paul", custId: "test", username: "test username", password: "test password"))
+        //profiles = [Profile(name: "paul", custId: "test", username: "test username", password: "test password")]
+        //profiles?.append(Profile(name: "paul", custId: "test", username: "test username", password: "test password"))
         self.tableView.reloadData()
         
 

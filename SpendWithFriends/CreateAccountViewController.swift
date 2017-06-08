@@ -46,6 +46,7 @@ class CreateAccountViewController: UIViewController, addUserDelegate {
     func addUser() {
         let dh = DataHandler(id: "")
         dh.auDelegate = self
+        UserDefaults.standard.set(Profile(name: firstName.text!+"%20"+lastName.text!, username: username.text!, password: password.text!), forKey: "profile")
         dh.addUser(name: firstName.text! + "%20" + lastName.text!, username: username.text!, password: password.text!)
     }
     

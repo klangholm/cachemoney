@@ -12,15 +12,14 @@ import UIKit
 class Profile : NSObject, URLSessionDataDelegate {
     
     fileprivate var name: String
-    fileprivate var custId: String
+    fileprivate var custId: String?
     fileprivate var pic: UIImage = UIImage(named: "Unknown.png")!
     fileprivate var username: String
     fileprivate var password: String
     
     
-    init(name: String, custId: String, username: String, password: String) {
+    init(name: String, username: String, password: String) {
         self.name = name
-        self.custId = custId
         self.username = username
         self.password = password
     }

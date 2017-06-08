@@ -19,6 +19,11 @@ protocol addUserDelegate {
     func addUserDeclined()
 }
 
+protocol addMeetUpDelegate {
+    func addMeetUpAuthorized()
+    func addMeetUpDeclined()
+}
+
 class DataHandler {
     
     var user_id: String
@@ -26,6 +31,8 @@ class DataHandler {
     var lDelegate: loginDelegate?
     
     var auDelegate: addUserDelegate?
+    
+    var amDelegate: addMeetUpDelegate?
     
     init(id: String) {
         self.user_id = id
@@ -172,6 +179,42 @@ class DataHandler {
                 print("good shit")
             } else {
                 self.auDelegate?.addUserDeclined()
+            }
+        })
+        task.resume()
+        
+        
+    }
+    
+    func addMeetUp(sender: Profile, venue: Merchant, date: Date, time: String, recipient: Profile, message:String, phone:String, read:Int, accepted:Int) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yyyy"
+        let newDate = dateFormatter.string(from: date)
+        let signUpURL: String = "http://lukeporupski.com/newPhp/addMeetUp.php?senderID=\(sender.getName)&recipientID=\(recipient.getName)&venue=\(venue.merchantId)&date=\(newDate)&time=\(time)&message=\(message)&phone=\(phone)&read=\(read)&accepted=\(accepted)"
+        //if (picLink != "") {
+        //  signUpURL += "&PicLink=" + picLink
+        //}
+        //let signUpURL: String = "http://lukeporupski.com/newPhp/addUsers.php?Username=frog&Password=frogger&Name=devin"
+        print(signUpURL)
+        let url: URL = URL(string: signUpURL)!
+        let urlRequest = URLRequest(url: url as URL)
+        let configuration = URLSessionConfiguration.default
+        
+        let session = Foundation.URLSession(configuration: configuration)
+        
+        //creating a task to send the post request
+        let task = session.dataTask(with: urlRequest, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            //print("Im here")
+            if error != nil{
+                //print("error is \(error)")
+                return;
+            }
+            let sizee = data!.count
+            if (sizee == 1) {
+                self.amDelegate?.addMeetUpAuthorized()
+                print("good shit")
+            } else {
+                self.amDelegate?.addMeetUpDeclined()
             }
         })
         task.resume()

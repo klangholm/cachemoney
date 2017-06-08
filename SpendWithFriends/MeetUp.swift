@@ -14,8 +14,8 @@ class MeetUp: NSObject {
     fileprivate var venue: Merchant!
     fileprivate var date: Date!
     fileprivate var time: String!
-    fileprivate var message: String?
-    fileprivate var phone: String?
+    fileprivate var message: String = ""
+    fileprivate var phone: String = ""
     fileprivate var recipient: Profile!
     fileprivate var read = false
     fileprivate var accepted: Bool?
