@@ -12,7 +12,7 @@ class MeetUpViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var message: UITextField!
+    @IBOutlet weak var message: UITextView!
     
     @IBOutlet weak var phone: UITextField!
     
