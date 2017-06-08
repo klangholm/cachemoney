@@ -15,8 +15,9 @@ class InboxViewController: UITableViewController {
     override func viewDidLoad() {
         
         self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
-        let prof = Profile(name: "Leoul", id: "30")
-        let prof2 = Profile(name: "reciever", id: "50")
+        self.tableView.rowHeight = 90
+        let prof = Profile(name: "Leoul", custId: "30", username: "leoul16", password: "123")
+        let prof2 = Profile(name: "reciever", custId: "50", username: "whatevs", password: "456")
         let meet = MeetUp(sender: prof, venue: "Hilton", date: Date(), address: "whatever", time: "3:40", recipient: prof2)
         requests?.append(meet)
         requests = [MeetUp(sender: prof, venue: "Hilton", date: Date(), address: "whatever", time: "3:40", recipient: prof2)]
@@ -35,6 +36,18 @@ class InboxViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        //Change the selected background view of the cell.
+//        tableView.selectRow(at: indexPath, animated: true)
+//        
+//    }
+    
+//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        //Change the selected background view of the cell.
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        
+//    }
+
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

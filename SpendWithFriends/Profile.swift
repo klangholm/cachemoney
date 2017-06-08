@@ -19,14 +19,9 @@ class Profile : NSObject {
     
     init(name: String, custId: String, username: String, password: String) {
         self.name = name
-<<<<<<< HEAD
-        self.id = id
-//        self.pic = 
-=======
         self.custId = custId
         self.username = username
         self.password = password
->>>>>>> 87fc497f421f9c61de0488e1b544fe3c363faa59
     }
     
     
