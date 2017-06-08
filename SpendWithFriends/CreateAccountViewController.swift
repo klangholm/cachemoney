@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController, addUserDelegate {
+class CreateAccountViewController: UIViewController, addUserDelegate, UITextFieldDelegate {
 
     
     var data : NSMutableData = NSMutableData()
@@ -34,6 +34,8 @@ class CreateAccountViewController: UIViewController, addUserDelegate {
         self.profilePicture.clipsToBounds = true
         self.profilePicture.layer.borderWidth = 3.0
         self.profilePicture.layer.borderColor = UIColor.lightGray.cgColor
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -43,6 +45,10 @@ class CreateAccountViewController: UIViewController, addUserDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
     func addUser() {
         let dh = DataHandler(id: "")
         dh.auDelegate = self

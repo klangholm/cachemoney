@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, loginDelegate {
+class LoginViewController: UIViewController, loginDelegate, UITextFieldDelegate {
 
     
     var data : NSMutableData = NSMutableData()
@@ -28,7 +28,22 @@ class LoginViewController: UIViewController, loginDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        username.returnKeyType = .next
+        password.returnKeyType = .done
+        username.delegate = self
+        password.delegate = self
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == username {
+            password.becomeFirstResponder()
+        }
+        else {
+            self.view.endEditing(true)
+        }
+        return true
     }
 
     override func didReceiveMemoryWarning() {
