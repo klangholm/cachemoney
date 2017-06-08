@@ -34,6 +34,7 @@ class MessageCell: UITableViewCell {
     }
     
     func configureCell(meetup: MeetUp) {
+        
         ProfPicView.image = meetup.getSender.getPic
         self.ProfPicView.layer.cornerRadius = 0.5 * self.ProfPicView.bounds.size.width
         self.ProfPicView.clipsToBounds = true

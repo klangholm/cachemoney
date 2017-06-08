@@ -21,6 +21,7 @@ class Profile : NSObject {
     init(name: String, id: String) {
         self.name = name
         self.id = id
+//        self.pic = 
     }
     
     
