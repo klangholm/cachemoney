@@ -28,23 +28,28 @@ class MessageCell: UITableViewCell {
         
         if wasTrue == true {
             self.backgroundColor = UIColor.white
-            button.backgroundColor = UIColor.gray
+            //button.backgroundColor = UIColor.gray
+            button.backgroundColor = UIColor.white
             button.isEnabled = false
+//            button.set
+            UIView.animate(withDuration: 0.5, animations: {
+                self.button.alpha = 0.2
+                //self.alpha = 0.5
+            })
+            
             wasTrue = false
         }
         else if wasTrue == false || selected == true {
-            self.backgroundColor = UIColor.gray
-            button.backgroundColor = UIColor.white
+            self.backgroundColor = UIColor.lightGray
+            button.backgroundColor = UIColor.lightGray
             button.isEnabled = true;
+
+            UIView.animate(withDuration: 0.5, animations: {
+                self.button.alpha = 1
+            })
             wasTrue = true;
         }
-//        else {
-//           // selected = false
-//            self.backgroundColor = UIColor.white
-//            button.backgroundColor = UIColor.gray
-//            button.isEnabled = false
-//        }
-//        
+        
         // Configure the view for the selected state
     }
     
@@ -56,7 +61,11 @@ class MessageCell: UITableViewCell {
         self.ProfPicView.layer.cornerRadius = 0.5 * self.ProfPicView.bounds.size.width
         self.ProfPicView.clipsToBounds = true
         self.nameField.text = meetup.getSender.getName
-        self.timeField.text = meetup.getTime
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yyyy"
+        let newDate = dateFormatter.string(from: meetup.getDate)
+        self.timeField.text = newDate + " " + meetup.getTime
         self.placeField.text = meetup.getVenue
         
         
