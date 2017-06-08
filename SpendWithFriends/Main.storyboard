@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Giv-Ax-Sa6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -91,16 +91,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AU6-Ue-egI">
-                                <rect key="frame" x="-140" y="0.0" width="140" height="667"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsP-hl-5LC">
+                                <rect key="frame" x="0.0" y="20" width="175" height="603"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiE-Fn-duj">
+                                        <rect key="frame" x="8" y="77" width="135" height="30"/>
+                                        <state key="normal" title="Upcoming Meetups">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqP-mk-QEZ">
+                                        <rect key="frame" x="8" y="115" width="135" height="30"/>
+                                        <state key="normal" title="Possible Meetups">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPL-GV-tpY">
+                                        <rect key="frame" x="8" y="153" width="135" height="30"/>
+                                        <state key="normal" title="Frequent Spots">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAH-mv-dTW">
+                                        <rect key="frame" x="8" y="191" width="135" height="30"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="N0X-7b-MhN"/>
+                                    <constraint firstItem="hPL-GV-tpY" firstAttribute="top" secondItem="sqP-mk-QEZ" secondAttribute="bottom" constant="8" symbolic="YES" id="O4P-UT-ld2"/>
+                                    <constraint firstItem="zAH-mv-dTW" firstAttribute="top" secondItem="hPL-GV-tpY" secondAttribute="bottom" constant="8" symbolic="YES" id="R7Y-ev-wJQ"/>
+                                    <constraint firstItem="sqP-mk-QEZ" firstAttribute="trailing" secondItem="hPL-GV-tpY" secondAttribute="trailing" id="UwG-qB-HEA"/>
+                                    <constraint firstItem="qiE-Fn-duj" firstAttribute="top" secondItem="bsP-hl-5LC" secondAttribute="top" constant="77" id="VTv-Ki-QTj"/>
+                                    <constraint firstAttribute="trailing" secondItem="qiE-Fn-duj" secondAttribute="trailing" constant="32" id="WiO-Py-prc"/>
+                                    <constraint firstItem="hPL-GV-tpY" firstAttribute="trailing" secondItem="zAH-mv-dTW" secondAttribute="trailing" id="YkK-Ri-Xpj"/>
+                                    <constraint firstItem="sqP-mk-QEZ" firstAttribute="leading" secondItem="hPL-GV-tpY" secondAttribute="leading" id="gb6-gE-n6m"/>
+                                    <constraint firstItem="qiE-Fn-duj" firstAttribute="leading" secondItem="sqP-mk-QEZ" secondAttribute="leading" id="oVj-7m-Qtb"/>
+                                    <constraint firstItem="qiE-Fn-duj" firstAttribute="trailing" secondItem="sqP-mk-QEZ" secondAttribute="trailing" id="rqE-OI-kUZ"/>
+                                    <constraint firstItem="hPL-GV-tpY" firstAttribute="leading" secondItem="zAH-mv-dTW" secondAttribute="leading" id="srv-aq-6nZ"/>
+                                    <constraint firstItem="sqP-mk-QEZ" firstAttribute="top" secondItem="qiE-Fn-duj" secondAttribute="bottom" constant="8" symbolic="YES" id="u3f-Jf-amn"/>
+                                    <constraint firstItem="qiE-Fn-duj" firstAttribute="leading" secondItem="bsP-hl-5LC" secondAttribute="leadingMargin" id="wUJ-Uj-HEU"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5u-0X-Inr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5u-0X-Inr">
                                 <rect key="frame" x="16" y="28" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
@@ -110,20 +146,25 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="AU6-Ue-egI" secondAttribute="bottom" id="0bX-8H-Qdn"/>
-                            <constraint firstItem="AU6-Ue-egI" firstAttribute="leading" secondItem="tBq-3t-jzG" secondAttribute="leading" constant="-140" id="QVY-zc-8od"/>
-                            <constraint firstItem="AU6-Ue-egI" firstAttribute="top" secondItem="HjB-NE-YMB" secondAttribute="bottom" constant="10" id="k99-t2-4Yv"/>
-                            <constraint firstAttribute="bottom" secondItem="AU6-Ue-egI" secondAttribute="bottom" id="mom-IA-j8r"/>
-                            <constraint firstAttribute="bottom" secondItem="AU6-Ue-egI" secondAttribute="bottom" id="vkg-o4-6CE"/>
+                            <constraint firstItem="bsP-hl-5LC" firstAttribute="top" secondItem="HjB-NE-YMB" secondAttribute="bottom" id="9KZ-bT-CkB"/>
+                            <constraint firstItem="9kj-Bi-2Y0" firstAttribute="top" secondItem="bsP-hl-5LC" secondAttribute="bottom" id="QoQ-vc-lG9"/>
+                            <constraint firstItem="bsP-hl-5LC" firstAttribute="leading" secondItem="tBq-3t-jzG" secondAttribute="leading" id="aJj-RR-tto"/>
+                            <constraint firstItem="g5u-0X-Inr" firstAttribute="leading" secondItem="tBq-3t-jzG" secondAttribute="leadingMargin" id="gAl-0P-oCw"/>
+                            <constraint firstItem="g5u-0X-Inr" firstAttribute="top" secondItem="HjB-NE-YMB" secondAttribute="bottom" constant="8" symbolic="YES" id="kfN-hI-GI4"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="menuView" destination="AU6-Ue-egI" id="6gu-Cv-ZyT"/>
+                        <outlet property="frequentOption" destination="hPL-GV-tpY" id="VOI-cc-Q94"/>
+                        <outlet property="menuButton" destination="g5u-0X-Inr" id="smi-bw-S41"/>
+                        <outlet property="menuView" destination="bsP-hl-5LC" id="LqW-aL-fZt"/>
+                        <outlet property="possibleOption" destination="sqP-mk-QEZ" id="Oo6-KR-YG8"/>
+                        <outlet property="settingsOption" destination="zAH-mv-dTW" id="3Ds-oc-aNG"/>
+                        <outlet property="upcomingOption" destination="qiE-Fn-duj" id="WKE-gF-h8g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xW-y5-vTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,6 +289,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sBy-tZ-u91"/>
+        <segue reference="Cgh-Tj-hEj"/>
     </inferredMetricsTieBreakers>
 </document>
