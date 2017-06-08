@@ -180,9 +180,13 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         //meetups
         
         let mvc = self.storyboard?.instantiateViewController(withIdentifier: "meetUpTableViewController") as! MeetUpTableViewController
-        self.addChildViewController(mvc)
-        self.meetupsView = mvc.view
-        self.meetupsView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        
+        //self.addChildViewController(mvc)
+        mvc.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        //self.view.addSubview(mvc.view)
+        //self.meetupsView = mvc.view
+        
+        //self.meetupsView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
         
         //requests

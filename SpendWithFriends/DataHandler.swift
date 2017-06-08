@@ -94,6 +94,51 @@ class DataHandler {
         
     }
     
+    
+    func getAcceptedMeetups(){
+        
+        var meetups = [MeetUp]()
+        let url_string = "http://lukeporupski.com/newPhp/getMeetups.php?id=7&type=2"
+        
+        let url = URL(string: url_string)
+        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
+            guard let data = data, error == nil else { return }
+            
+            do {
+                
+                let json = try JSONSerialization.jsonObject(with: data) as? [Any]
+                var count = 0
+                for item in json! {
+                    if let meet = item as? [String: Any] {
+                        var sender = meet["senderID"]
+                        var recipient = meet["RecipientID"]
+                        let sP = Profile(name: sender as! String, username: "", password: "")
+                        let rP = Profile(name: recipient as! String, username: "", password: "")
+                        
+                        //let newMeetUp = MeetUp(sender: sP, venue: meet["Venue"] as! String, date: meet["Date"] as! String, time: meet["Time"] as! String, recipient: rP)
+                        
+                        
+                    }
+                    else {
+                        count = count + 1
+                    }
+                }
+                
+            } catch let error as NSError {
+                print(error)
+            }
+        }).resume()
+        
+    }
+    
+    
+    func getRequests(){
+        
+        var meetups = [MeetUp]()
+        
+    }
+    
+    
     func getProfilesForLocation(merch: Merchant){
         var profs = [Profile]()
         let url_string = "http://lukeporupski.com/newPhp/getUserIDFromPurchasesBasedOnMerchantID.php?merchant_id=\(merch.merchantId)"
@@ -277,11 +322,11 @@ class DataHandler {
         
     }
     
-    func addMeetUp(sender: Profile, venue: Merchant, date: Date, time: String, recipient: Profile, message:String, phone:String, read:Int, accepted:Int) {
+    func addMeetUp(sender: Profile, venue: String, date: Date, time: String, recipient: Profile, message:String, phone:String, read:Int, accepted:Int) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/mm/yyyy"
         let newDate = dateFormatter.string(from: date)
-        let signUpURL: String = "http://lukeporupski.com/newPhp/addMeetUp.php?senderID=\(sender.getName)&recipientID=\(recipient.getName)&venue=\(venue.merchantId)&date=\(newDate)&time=\(time)&message=\(message)&phone=\(phone)&read=\(read)&accepted=\(accepted)"
+        let signUpURL: String = "http://lukeporupski.com/newPhp/addMeetUp.php?senderID=\(sender.getName)&recipientID=\(recipient.getName)&venue=\(venue)&date=\(newDate)&time=\(time)&message=\(message)&phone=\(phone)&read=\(read)&accepted=\(accepted)"
         //if (picLink != "") {
         //  signUpURL += "&PicLink=" + picLink
         //}

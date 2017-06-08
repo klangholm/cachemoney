@@ -11,7 +11,7 @@ import Foundation
 class MeetUp: NSObject {
     
     fileprivate var sender: Profile
-    fileprivate var venue: Merchant!
+    fileprivate var venue: String!
     fileprivate var date: Date!
     fileprivate var time: String!
     fileprivate var message: String = ""
@@ -23,7 +23,7 @@ class MeetUp: NSObject {
     var getSender: Profile!{
         return sender
     }
-    var getVenue: Merchant!{
+    var getVenue: String!{
         return venue
     }
     
@@ -55,7 +55,7 @@ class MeetUp: NSObject {
         return accepted
     }
     
-    init(sender: Profile, venue: Merchant, date: Date, time: String, recipient: Profile){
+    init(sender: Profile, venue: String, date: Date, time: String, recipient: Profile){
         self.sender = sender
         self.venue = venue
         self.date = date

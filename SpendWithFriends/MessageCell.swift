@@ -70,7 +70,7 @@ class MessageCell: UITableViewCell {
         dateFormatter.dateFormat = "dd/mm/yyyy"
         let newDate = dateFormatter.string(from: meetup.getDate)
         self.timeField.text = newDate + " " + meetup.getTime
-        self.placeField.text = meetup.getVenue.name
+        self.placeField.text = meetup.getVenue
         
         
 //        button.backgroundColor = UIColor.gray

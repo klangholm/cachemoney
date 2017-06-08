@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetUpViewController: UIViewController, addMeetUpDelegate {
+class MeetUpViewController: UIViewController, addMeetUpDelegate, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -25,6 +25,9 @@ class MeetUpViewController: UIViewController, addMeetUpDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        phone.delegate = self
+        message.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -33,10 +36,33 @@ class MeetUpViewController: UIViewController, addMeetUpDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+
+    // hides text views
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    // hides text fields
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == "\n") {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     func addMeetUp(sender: Profile, venue: Merchant, date: Date, time: String, recipient: Profile, message:String, phone:String, read:Int = 0, accepted:Int = 0){
-        let dh = DataHandler(id: "")
+        let dh = DataHandler()
         dh.amDelegate = self
-        dh.addMeetUp(sender: sender, venue: venue, date: date, time: time, recipient: recipient, message: message, phone: phone, read: read, accepted: accepted)
+        dh.addMeetUp(sender: sender, venue: venue.name, date: date, time: time, recipient: recipient, message: message, phone: phone, read: read, accepted: accepted)
     }
     
     func URLSession(session: URLSession, dataTask: URLSessionDataTask, didReceiveData data: NSData) {
@@ -86,7 +112,7 @@ class MeetUpViewController: UIViewController, addMeetUpDelegate {
             let date = datePicker.date
             let time = getTimeFromDatePicker(datePicker: datePicker)
             let recipient = selectedRecipient
-            let meetup = MeetUp(sender: sender, venue: selectedMerchant, date: date, time: time, recipient: recipient!)
+            let meetup = MeetUp(sender: sender, venue: selectedMerchant.name, date: date, time: time, recipient: recipient!)
             var messagetext = ""
             if message.text != nil {
                 meetup.addMessage(message: message.text!)
@@ -101,6 +127,9 @@ class MeetUpViewController: UIViewController, addMeetUpDelegate {
             //print(meetup.getMessage)
             //print(meetup.getPhone)
             //send to the database
+            
+        }
+        else {
             
         }
     }

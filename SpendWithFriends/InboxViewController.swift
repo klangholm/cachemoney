@@ -11,13 +11,14 @@ import UIKit
 class InboxViewController: UITableViewController, addMeetUpDelegate {
 
     @IBOutlet weak var menuView: UIView!
-    var requests: [MeetUp]?
+    var requests = [MeetUp]()
     var data: NSMutableData = NSMutableData()
     override func viewDidLoad() {
         
         self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         self.tableView.rowHeight = 90
-        requests = [MeetUp(sender: Profile(name: "paul", username: "test username", password: "test password"), venue: Merchant(name: "bitch", merchantId: "12345", category: "sup", latitude: "54.43", longitude: "66.66"), date: Date(timeIntervalSince1970: TimeInterval()), time: "Hello", recipient: Profile(name: "paul", username: "test username", password: "test password"))]
+        
+        
         // pull meet ups from db and populate view
         
 //        self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -27,7 +28,7 @@ class InboxViewController: UITableViewController, addMeetUpDelegate {
 //        menuView.layer.shadowOpacity = 1
     }
  
-    func addMeetUp(sender: Profile, venue: Merchant, date: Date, time: String, recipient: Profile, message:String, phone:String, read:Int = 0, accepted:Int = 0){
+    func addMeetUp(sender: Profile, venue: String, date: Date, time: String, recipient: Profile, message:String, phone:String, read:Int = 0, accepted:Int = 0){
         let dh = DataHandler(id: "")
         dh.amDelegate = self
         dh.addMeetUp(sender: sender, venue: venue, date: date, time: time, recipient: recipient, message: message, phone: phone, read: read, accepted: accepted)
@@ -86,11 +87,11 @@ class InboxViewController: UITableViewController, addMeetUpDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return requests!.count
+        return requests.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let request = requests![indexPath.row]
+        let request = requests[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
         cell.configureCell(meetup: request)
         cell.tapAction1 = { [weak self] (cell) in

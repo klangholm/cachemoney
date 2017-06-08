@@ -330,6 +330,7 @@
 				TargetAttributes = {
 					542703DA1EE89D3C0093C0C9 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = U2TXEES4XA;
 						ProvisioningStyle = Automatic;
 					};
 					542703EE1EE89D3D0093C0C9 = {
@@ -692,7 +693,7 @@
 			baseConfigurationReference = 8EF2D619A49BDDA6B99CFF25 /* Pods-SpendWithFriends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = U2TXEES4XA;
 				INFOPLIST_FILE = SpendWithFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -707,7 +708,7 @@
 			baseConfigurationReference = E2095179B34F0A992F821924 /* Pods-SpendWithFriends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = U2TXEES4XA;
 				INFOPLIST_FILE = SpendWithFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
