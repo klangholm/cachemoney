@@ -15,7 +15,7 @@ class MeetUp: NSObject {
     fileprivate var address: String!
     fileprivate var time: String!
     fileprivate var message: String?
-    fileprivate var phone: Int?
+    fileprivate var phone: String?
     fileprivate var recipient: Profile!
     fileprivate var read = false
     fileprivate var accepted: Bool?
@@ -40,7 +40,7 @@ class MeetUp: NSObject {
         return message
     }
     
-    var getPhone: Int!{
+    var getPhone: String!{
         return phone
     }
     
@@ -76,7 +76,7 @@ class MeetUp: NSObject {
         self.message = message
     }
     
-    func addPhone(phone: Int){
+    func addPhone(phone: String){
         self.phone = phone
     }
 }
