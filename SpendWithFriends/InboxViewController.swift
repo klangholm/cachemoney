@@ -17,8 +17,11 @@ class InboxViewController: UITableViewController, addMeetUpDelegate {
         
         self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         self.tableView.rowHeight = 90
-        
-        
+        requests = [MeetUp(sender: Profile(name: "Paul Jones", username: "test username", password: "test password"), venue: "Starbucks", date: Date(timeIntervalSince1970: TimeInterval()), time: "1:45:22", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password"))]
+        requests.append(MeetUp(sender: Profile(name: "Jane Doe", username: "test username", password: "test password"), venue: "Dunkin Donuts", date: Date(timeIntervalSince1970: TimeInterval()), time: "12:20:13", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password")))
+        requests.append(MeetUp(sender: Profile(name: "John Doyle", username: "test username", password: "test password"), venue: "Walmart", date: Date(timeIntervalSince1970: TimeInterval()), time: "11:23:54", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password")))
+        requests.append(MeetUp(sender: Profile(name: "Paul Blart", username: "test username", password: "test password"), venue: "Mall", date: Date(timeIntervalSince1970: TimeInterval()), time: "5:44:32", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password"))
+        )
         // pull meet ups from db and populate view
         
 //        self.navigationController?.setNavigationBarHidden(true, animated: true)
