@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
     
-    var profiles = [Profile]?
+    //var profiles = [Profile]?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +35,8 @@ class ProfileTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return profiles!.count
+        //return profiles!.count
+        return 0
     }
 
     /*
