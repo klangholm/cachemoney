@@ -37,6 +37,9 @@ class MeetUpViewController: UIViewController {
         return String(hour)+":"+String(minutes)
     }
     
+    @IBAction func backButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         //unfinished - test data
