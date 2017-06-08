@@ -16,16 +16,10 @@ class InboxViewController: UITableViewController {
         
         self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         self.tableView.rowHeight = 90
-        let prof = Profile(name: "Bob", custId: "30", username: "whocares", password: "123")
-        let prof2 = Profile(name: "Joe", custId: "50", username: "whatevs", password: "456")
-        let meet = MeetUp(sender: prof, venue: "Hilton", date: Date(), address: "whatever", time: "3:40", recipient: prof2)
-        
-        let meet2 = MeetUp(sender: prof2, venue: "Marriott", date: Date(), address: "wherever", time: "5:45", recipient: prof)
-        //requests?.append(meet)
-        requests = [MeetUp(sender: prof, venue: "Hilton", date: Date(), address: "whatever", time: "3:40", recipient: prof2), MeetUp(sender: prof2, venue: "Marriott", date: Date(), address: "wherever", time: "3:40", recipient: prof)]
         // pull meet ups from db and populate view
         
 //        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.tableView.reloadData()
         super.viewDidLoad()
 //        
 //        menuView.layer.shadowOpacity = 1
@@ -63,6 +57,17 @@ class InboxViewController: UITableViewController {
         let request = requests![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
         cell.configureCell(meetup: request)
+        cell.tapAction1 = { [weak self] (cell) in
+            request.toggleRead()
+            request.setAccepted(accept: true)
+            //send it to original sender
+            
+        }
+        cell.tapAction2 = { [weak self] (cell) in
+            request.toggleRead()
+            request.setAccepted(accept: false)
+            //delete it
+        }
         return cell
     }
     

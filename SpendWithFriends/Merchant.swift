@@ -13,25 +13,17 @@ class Merchant: NSObject {
     var name: String
     var merchantId: String
     var category: String
-    var streetNumber: Int
-    var streetName: String
-    var city: String
-    var state: String
-    var zip: Int
     var latitude: Double
     var longitude: Double
     
-    init(name: String, merchantId: String, category: String, streetNumber: Int,streetName: String, city: String, state: String, zip: Int, latitude: Double, longitude: Double) {
+    init(name: String, merchantId: String, category: String, latitude: String, longitude: String) {
         self.name = name
         self.merchantId = merchantId
         self.category = category
-        self.streetNumber = streetNumber
-        self.streetName = streetName
-        self.city = city
-        self.state = state
-        self.zip = zip
-        self.latitude = latitude
-        self.longitude = longitude
+        let latArr = latitude.components(separatedBy: [" ", "\n", "$"])
+        self.latitude = Double(latArr[0])!
+        let lngArr = longitude.components(separatedBy: [" ", "\n", "$"])
+        self.longitude = Double(lngArr[0])!
     }
     
     
