@@ -56,15 +56,22 @@ class ProfileTableViewController: UITableViewController {
         let profile = profiles![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
         cell.configureCell(profile: profile)
-        cell.meetUpButton.addTarget(self, action: #selector(ProfileTableViewController.meetUpButtonTapped(_:)), for: .touchUpInside)
+        cell.tapAction = { [weak self] (cell) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "MeetUpViewController")
+            self?.present(controller, animated: true, completion: nil)
+        }
+        //cell.meetUpButton.isUserInteractionEnabled = true
+        //cell.meetUpButton.tag = indexPath.row
+        //cell.meetUpButton.addTarget(self, action: #selector(ProfileTableViewController.meetUpButtonTapped(_:)), for: .touchUpInside)
 
         return cell
     }
  
-    func meetUpButtonTapped(_ button: UIButton){
-        let meetupVC = MeetUpViewController(nibName: "SigninVC", bundle: nil)
-        self.present(meetupVC, animated: true, completion: nil)
-    }
+    //func meetUpButtonTapped(_ button: UIButton){
+    //    let meetupVC = MeetUpViewController(nibName: "SigninVC", bundle: nil)
+     //   self.present(meetupVC, animated: true, completion: nil)
+    //}
 
     /*
     // Override to support conditional editing of the table view.
