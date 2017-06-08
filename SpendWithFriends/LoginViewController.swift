@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, loginDelegate {
     @IBOutlet weak var password: UITextField!
     @IBAction func loginButtonPressed(_ sender: Any) {
         
-        if (username.text?.isEmpty ?? true || password.text?.isEmpty ?? true) {
+        if (username.text?.isEmpty ?? true  || password.text?.isEmpty ?? true) {
             let dialog = UIAlertController(title: "Error", message: "Blank text fields are forbidden", preferredStyle: UIAlertControllerStyle.alert)
             present(dialog,animated: false, completion: nil)
             dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in print("logic?")}))

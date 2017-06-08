@@ -11,12 +11,16 @@ import UIKit
 class CreateAccountViewController: UIViewController {
 
     
-    @IBOutlet weak var profilePicture: UIImageView!
+    var data : NSMutableData = NSMutableData()
+    
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var profilePicture: UIImageView!
     
     @IBAction func continueButtonPressed(_ sender: Any) {
-        if (firstName.text?.isEmpty ?? true || lastName.text?.isEmpty ?? true) {
+        if (firstName.text?.isEmpty ?? true || lastName.text?.isEmpty ?? true || username.text?.isEmpty ?? true || password.text?.isEmpty ?? true) {
             let dialog = UIAlertController(title: "Error", message: "Blank text fields are forbidden", preferredStyle: UIAlertControllerStyle.alert)
             present(dialog,animated: false, completion: nil)
             dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in print("logic?")}))
@@ -25,6 +29,10 @@ class CreateAccountViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.profilePicture.layer.cornerRadius = 0.5 * self.profilePicture.bounds.size.width
+        self.profilePicture.clipsToBounds = true
+        self.profilePicture.layer.borderWidth = 3.0
+        self.profilePicture.layer.borderColor = UIColor.lightGray.cgColor
 
         // Do any additional setup after loading the view.
     }
@@ -32,6 +40,40 @@ class CreateAccountViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addUser() {
+        let dh = DataHandler(id: "")
+        dh.auDelegate = self as! addUserDelegate
+        dh.addUser(name: firstName.text! + " " + lastName.text!, username: username.text!, password: password.text!, picLink: "")
+    }
+    
+    func URLSession(session: URLSession, dataTask: URLSessionDataTask, didReceiveData data: NSData) {
+        self.data.append(data as Data)
+    }
+    
+    func URLSession(session: URLSession, task: URLSessionDataTask, didCompleteWithError error: NSError?) {
+        if error != nil {
+            print("Failed to download data")
+        } else {
+            print("Data downloaded")
+            
+        }
+    }
+    
+    func addUserDeclined() {
+        
+        DispatchQueue.main.async() {
+            let dialog = UIAlertController(title: "Error", message: "Incorrect username or password", preferredStyle: UIAlertControllerStyle.alert)
+            
+            dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in print("logic??")}))
+            self.present(dialog,animated: false, completion: nil)
+            
+        }
+    }
+    func addUserAuthorized() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")
+        self.navigationController?.show(vc!, sender: nil)
     }
     
 
