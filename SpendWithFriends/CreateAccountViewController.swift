@@ -30,6 +30,10 @@ class CreateAccountViewController: UIViewController, addUserDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.profilePicture.layer.cornerRadius = 0.5 * self.profilePicture.bounds.size.width
+        self.profilePicture.clipsToBounds = true
+        self.profilePicture.layer.borderWidth = 3.0
+        self.profilePicture.layer.borderColor = UIColor.lightGray.cgColor
 
         // Do any additional setup after loading the view.
     }
