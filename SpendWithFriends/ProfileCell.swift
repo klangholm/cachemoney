@@ -16,6 +16,10 @@ class ProfileCell: UITableViewCell {
     
     @IBOutlet weak var weekday: UILabel!
     
+    @IBOutlet weak var meetUpButton: UIButton!
+    
+    var tapAction: ((UITableViewCell) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,12 +32,15 @@ class ProfileCell: UITableViewCell {
     }
     
     func configureCell(profile: Profile){
-        
         profilePic.image = profile.getPic
         self.profilePic.layer.cornerRadius = 0.5 * self.profilePic.bounds.size.width
         self.profilePic.clipsToBounds = true
         self.name.text = profile.getName
         //set day of the week - figure out how to do that
+    }
+    
+    @IBAction func meetUpButtonTapped(_ sender: Any) {
+        tapAction?(self)
     }
     
 }

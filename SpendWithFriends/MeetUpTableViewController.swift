@@ -1,42 +1,35 @@
 //
-//  ProfileTableViewController.swift
+//  MeetUpTableViewController.swift
 //  SpendWithFriends
 //
-//  Created by Kristian Langholm on 6/7/17.
+//  Created by Kristian Langholm on 6/8/17.
 //  Copyright © 2017 klangholm. All rights reserved.
 //
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
-    
-    var profiles: [Profile]?
-    
-    var selectedMerchant: Merchant!
-    
-    override func viewDidLoad(){
-        super.viewDidLoad()
-        self.tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
-        self.tableView.rowHeight = 95.0
-        profiles = [Profile(name: "paul", custId: "test", username: "test username", password: "test password")]
-        profiles?.append(Profile(name: "paul", custId: "test", username: "test username", password: "test password"))
-        self.tableView.reloadData()
-        
+class MeetUpTableViewController: UITableViewController {
 
+    var meetups: [MeetUp]?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        self.tableView.rowHeight = 95.0
+        //populate meetup list with meetups from the database that have been accepted
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = "Most Frequent Users at "//+selectedMerchant.name
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "Meet Ups"
     }
 
     // MARK: - Table view data source
@@ -48,30 +41,18 @@ class ProfileTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return profiles!.count
+        return meetups!.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let profile = profiles![indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-        cell.configureCell(profile: profile)
-        cell.tapAction = { [weak self] (cell) in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "MeetUpViewController")
-            self?.present(controller, animated: true, completion: nil)
-        }
-        //cell.meetUpButton.isUserInteractionEnabled = true
-        //cell.meetUpButton.tag = indexPath.row
-        //cell.meetUpButton.addTarget(self, action: #selector(ProfileTableViewController.meetUpButtonTapped(_:)), for: .touchUpInside)
-
+        let meetup = meetups![indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+        cell.configureCell(meetup: meetup)
+        
         return cell
     }
  
-    //func meetUpButtonTapped(_ button: UIButton){
-    //    let meetupVC = MeetUpViewController(nibName: "SigninVC", bundle: nil)
-     //   self.present(meetupVC, animated: true, completion: nil)
-    //}
 
     /*
     // Override to support conditional editing of the table view.
