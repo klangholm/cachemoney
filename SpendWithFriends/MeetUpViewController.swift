@@ -16,6 +16,8 @@ class MeetUpViewController: UIViewController {
     
     @IBOutlet weak var phone: UITextField!
     
+    var selectedmerchant: Merchant!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
