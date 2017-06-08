@@ -262,6 +262,34 @@
             </objects>
             <point key="canvasLocation" x="1226.4000000000001" y="787.55622188905556"/>
         </scene>
+        <!--Profile Table View Controller-->
+        <scene sceneID="wYd-uw-U4h">
+            <objects>
+                <tableViewController id="Y8E-Id-B3Y" customClass="ProfileTableViewController" customModule="SpendWithFriends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HKv-y2-78Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MNU-pE-Cf5">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNU-pE-Cf5" id="xQO-To-9Hc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Y8E-Id-B3Y" id="tgD-bZ-hvh"/>
+                            <outlet property="delegate" destination="Y8E-Id-B3Y" id="tYe-In-YzE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OwI-OR-77p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-201" y="814"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="DJO-ir-ZUW">
             <objects>
@@ -294,6 +322,9 @@
                                 <rect key="frame" x="166.5" y="419" width="42" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="Y8E-Id-B3Y" kind="show" id="gRS-hV-7fv"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKG-dd-nKJ">
                                 <rect key="frame" x="86" y="381" width="203" height="30"/>
@@ -347,7 +378,6 @@
                             <constraint firstItem="HKG-dd-nKJ" firstAttribute="leading" secondItem="MKN-fw-s1Z" secondAttribute="leadingMargin" constant="70" id="k46-K9-pqZ"/>
                             <constraint firstItem="SHi-i7-k7m" firstAttribute="top" secondItem="HKG-dd-nKJ" secondAttribute="bottom" constant="8" id="ocy-qK-GNB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mzL-2t-rJP" secondAttribute="trailing" constant="70" id="pie-4f-u7J"/>
-                            <constraint firstItem="Ksl-HS-U1w" firstAttribute="top" secondItem="SHi-i7-k7m" secondAttribute="bottom" constant="8" id="qhV-DH-LCd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CwM-iZ-huq"/>

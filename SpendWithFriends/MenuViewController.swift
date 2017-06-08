@@ -29,6 +29,9 @@ class MenuViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewDidLoad()
         
+        //transfers to next view
+        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")
+        //self.navigationController?.show(vc!, sender: nil)
         menuView.layer.shadowOpacity = 1
         menuView.layer.zPosition = 2
         menuButton.layer.zPosition = 3

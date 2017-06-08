@@ -16,9 +16,14 @@
 		542703E91EE89D3D0093C0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 542703E71EE89D3D0093C0C9 /* LaunchScreen.storyboard */; };
 		542703F41EE89D3D0093C0C9 /* SpendWithFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542703F31EE89D3D0093C0C9 /* SpendWithFriendsTests.swift */; };
 		542703FF1EE89D3D0093C0C9 /* SpendWithFriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542703FE1EE89D3D0093C0C9 /* SpendWithFriendsUITests.swift */; };
+		542955DB1EE8F7F100AB9E02 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542955DA1EE8F7F100AB9E02 /* ProfileTableViewController.swift */; };
+		542955DD1EE900EB00AB9E02 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 542955DC1EE900EB00AB9E02 /* Unknown.png */; };
 		545BE0FB143C7D6B3050714D /* Pods_SpendWithFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AEA359FF9CBE421609D6D6C /* Pods_SpendWithFriendsUITests.framework */; };
 		686FBAC1BC9FEB02825410F6 /* Pods_SpendWithFriendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075E2F24E78DB66174423433 /* Pods_SpendWithFriendsTests.framework */; };
 		B32BCCEE1EE8B0910041377E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BCCED1EE8B0910041377E /* MenuViewController.swift */; };
+		B3C213211EE8FA1000C0E4E8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C2131E1EE8FA1000C0E4E8 /* CreateAccountViewController.swift */; };
+		B3C213221EE8FA1000C0E4E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C2131F1EE8FA1000C0E4E8 /* LoginViewController.swift */; };
+		B3C213231EE8FA1000C0E4E8 /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C213201EE8FA1000C0E4E8 /* Merchant.swift */; };
 		CC2808761EE8E98900FF800D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2808751EE8E98900FF800D /* Main.storyboard */; };
 		CC2808801EE8EB8F00FF800D /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2808771EE8EB8F00FF800D /* hamburger.png */; };
 		CC2808811EE8EB8F00FF800D /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2808781EE8EB8F00FF800D /* InboxViewController.swift */; };
@@ -68,11 +73,16 @@
 		542703FA1EE89D3D0093C0C9 /* SpendWithFriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpendWithFriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		542703FE1EE89D3D0093C0C9 /* SpendWithFriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendWithFriendsUITests.swift; sourceTree = "<group>"; };
 		542704001EE89D3D0093C0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		542955DA1EE8F7F100AB9E02 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		542955DC1EE900EB00AB9E02 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unknown.png; path = Assets.xcassets/Unknown.png; sourceTree = "<group>"; };
 		5C2E8AA70854407B840A0F0E /* Pods-SpendWithFriendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriendsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriendsTests/Pods-SpendWithFriendsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6086F130A349DBF813F3ED72 /* Pods-SpendWithFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriendsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriendsUITests/Pods-SpendWithFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6AEA359FF9CBE421609D6D6C /* Pods_SpendWithFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendWithFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF2D619A49BDDA6B99CFF25 /* Pods-SpendWithFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriends/Pods-SpendWithFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		B32BCCED1EE8B0910041377E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B3C2131E1EE8FA1000C0E4E8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		B3C2131F1EE8FA1000C0E4E8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B3C213201EE8FA1000C0E4E8 /* Merchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
 		C8FDED4E270EC0C312C78A4C /* Pods-SpendWithFriendsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendWithFriendsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendWithFriendsTests/Pods-SpendWithFriendsTests.release.xcconfig"; sourceTree = "<group>"; };
 		CC2808751EE8E98900FF800D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CC2808771EE8EB8F00FF800D /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
@@ -152,6 +162,10 @@
 		542703DD1EE89D3C0093C0C9 /* SpendWithFriends */ = {
 			isa = PBXGroup;
 			children = (
+				B3C2131E1EE8FA1000C0E4E8 /* CreateAccountViewController.swift */,
+				B3C2131F1EE8FA1000C0E4E8 /* LoginViewController.swift */,
+				B3C213201EE8FA1000C0E4E8 /* Merchant.swift */,
+				542955DA1EE8F7F100AB9E02 /* ProfileTableViewController.swift */,
 				2A8ED2711EE8A836005BC20E /* Model */,
 				542703DE1EE89D3C0093C0C9 /* AppDelegate.swift */,
 				CC2808771EE8EB8F00FF800D /* hamburger.png */,
@@ -168,6 +182,7 @@
 				B32BCCED1EE8B0910041377E /* MenuViewController.swift */,
 				CC2808751EE8E98900FF800D /* Main.storyboard */,
 				542703E51EE89D3D0093C0C9 /* Assets.xcassets */,
+				542955DC1EE900EB00AB9E02 /* Unknown.png */,
 				542703E71EE89D3D0093C0C9 /* LaunchScreen.storyboard */,
 				542703EA1EE89D3D0093C0C9 /* Info.plist */,
 			);
@@ -334,6 +349,7 @@
 				CC2808761EE8E98900FF800D /* Main.storyboard in Resources */,
 				2AB822891EE8F5FC00C6B4F5 /* MessageCell.xib in Resources */,
 				CC2808801EE8EB8F00FF800D /* hamburger.png in Resources */,
+				542955DD1EE900EB00AB9E02 /* Unknown.png in Resources */,
 				542703E91EE89D3D0093C0C9 /* LaunchScreen.storyboard in Resources */,
 				542703E61EE89D3D0093C0C9 /* Assets.xcassets in Resources */,
 				CC2808871EE8EB8F00FF800D /* ProfileCell.xib in Resources */,
@@ -484,6 +500,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C213211EE8FA1000C0E4E8 /* CreateAccountViewController.swift in Sources */,
+				542955DB1EE8F7F100AB9E02 /* ProfileTableViewController.swift in Sources */,
 				CC2808851EE8EB8F00FF800D /* MeetUpViewController.swift in Sources */,
 				CC2808821EE8EB8F00FF800D /* MainViewController.swift in Sources */,
 				CC2808841EE8EB8F00FF800D /* MeetUp.swift in Sources */,
@@ -494,7 +512,9 @@
 				B32BCCEE1EE8B0910041377E /* MenuViewController.swift in Sources */,
 				2A8ED2751EE8AAC9005BC20E /* Purchase.swift in Sources */,
 				CC2808881EE8EB8F00FF800D /* SlideMenu.swift in Sources */,
+				B3C213221EE8FA1000C0E4E8 /* LoginViewController.swift in Sources */,
 				2A8ED2731EE8A85C005BC20E /* Profile.swift in Sources */,
+				B3C213231EE8FA1000C0E4E8 /* Merchant.swift in Sources */,
 				542703DF1EE89D3C0093C0C9 /* AppDelegate.swift in Sources */,
 				CC2808831EE8EB8F00FF800D /* MapViewController.swift in Sources */,
 			);

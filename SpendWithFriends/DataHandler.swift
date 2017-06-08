@@ -28,6 +28,12 @@ class DataHandler {
         return temp
     }
     
+    func getProfilesForLocation() -> [Profile] {
+        let temp = [Profile]()
+        
+        return temp
+    }
+    
     
     
 }
