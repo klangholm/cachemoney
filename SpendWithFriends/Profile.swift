@@ -12,15 +12,16 @@ import UIKit
 class Profile : NSObject {
     
     fileprivate var name: String
-    fileprivate var id: String
+    fileprivate var custId: String
     fileprivate var pic: UIImage?
+    fileprivate var username: String
+    fileprivate var password: String
     
-    
-    //fileprivate var runningTabs = [Tab]()  //Array<Tab>?
-    
-    init(name: String, id: String) {
+    init(name: String, custId: String, username: String, password: String) {
         self.name = name
-        self.id = id
+        self.custId = custId
+        self.username = username
+        self.password = password
     }
     
     
@@ -40,5 +41,20 @@ class Profile : NSObject {
         return self.pic!
     }
     
+    var getUsername: String {
+        return self.username
+    }
+    
+    func setUsername(username: String) {
+        self.username = username
+    }
+    
+    var getPassword: String {
+        return self.password
+    }
+    
+    func setPassword(password: String) {
+        self.password = password
+    }
     
 }
