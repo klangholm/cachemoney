@@ -21,34 +21,36 @@ class MessageCell: UITableViewCell {
     
    
     @IBOutlet weak var ProfPicView: UIImageView!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
     var wasTrue: Bool = false
-    
+    var tapAction1: ((UITableViewCell) -> Void)?
+    var tapAction2: ((UITableViewCell) -> Void)?
     override func setSelected(_ selected: Bool, animated: Bool) {
-        
-        if wasTrue == true {
-            self.backgroundColor = UIColor.white
+        super.setSelected(selected, animated: animated)
+        //if wasTrue == true {
+         //   self.backgroundColor = UIColor.white
             //button.backgroundColor = UIColor.gray
-            button.backgroundColor = UIColor.white
-            button.isEnabled = false
+         //   button.backgroundColor = UIColor.white
+         //   button.isEnabled = false
 //            button.set
-            UIView.animate(withDuration: 0.5, animations: {
-                self.button.alpha = 0.2
+          //  UIView.animate(withDuration: 0.5, animations: {
+           //     self.button.alpha = 0.2
                 //self.alpha = 0.5
-            })
+           // })
             
-            wasTrue = false
-        }
-        else if wasTrue == false || selected == true {
-            self.backgroundColor = UIColor.lightGray
-            button.backgroundColor = UIColor.lightGray
-            button.isEnabled = true;
+        //    wasTrue = false
+        //}
+        //else if wasTrue == false || selected == true {
+         //   self.backgroundColor = UIColor.lightGray
+         //   button.backgroundColor = UIColor.lightGray
+         //   button.isEnabled = true;
 
-            UIView.animate(withDuration: 0.5, animations: {
-                self.button.alpha = 1
-            })
-            wasTrue = true;
-        }
+          //  UIView.animate(withDuration: 0.5, animations: {
+          //      self.button.alpha = 1
+           // })
+           // wasTrue = true;
+       // }
         
         // Configure the view for the selected state
     }
@@ -68,7 +70,7 @@ class MessageCell: UITableViewCell {
         dateFormatter.dateFormat = "dd/mm/yyyy"
         let newDate = dateFormatter.string(from: meetup.getDate)
         self.timeField.text = newDate + " " + meetup.getTime
-        self.placeField.text = meetup.getVenue
+        self.placeField.text = meetup.getVenue.name
         
         
 //        button.backgroundColor = UIColor.gray
@@ -77,6 +79,16 @@ class MessageCell: UITableViewCell {
         
     }
     
-    
+    @IBAction func acceptButtonTapped(_ sender: Any) {
+        tapAction1?(self)
+        acceptButton.isHidden = true
+        rejectButton.isHidden = true
+    }
+    @IBAction func rejectButtonTapped(_ sender: Any) {
+        tapAction2?(self)
+        acceptButton.isHidden = true
+        rejectButton.isHidden = true
+    }
+
     
 }

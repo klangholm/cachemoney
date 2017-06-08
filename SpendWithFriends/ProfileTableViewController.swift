@@ -18,9 +18,11 @@ class ProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         self.tableView.rowHeight = 95.0
+        self.tableView.allowsSelection = false
         profiles = [Profile(name: "paul", custId: "test", username: "test username", password: "test password")]
         profiles?.append(Profile(name: "paul", custId: "test", username: "test username", password: "test password"))
         self.tableView.reloadData()
+        
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -31,7 +33,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = "Most Frequent Users at "//+selectedMerchant.name
+        self.navigationItem.title = "Most Frequent Users at \(self.selectedMerchant.name)"//+selectedMerchant.name
     }
 
     override func didReceiveMemoryWarning() {

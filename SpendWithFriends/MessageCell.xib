@@ -22,12 +22,6 @@
                         <rect key="frame" x="5" y="0.0" width="69" height="87"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi8-Tc-QHJ">
-                        <rect key="frame" x="305" y="43" width="49" height="39"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="tintColor" red="0.0" green="0.14740596329045236" blue="0.6642244170984456" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <state key="normal" title="Respond" image="reply.png"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zE-1C-ySN">
                         <rect key="frame" x="112" y="8" width="77" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -49,20 +43,34 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXs-17-VqC">
+                        <rect key="frame" x="217" y="43" width="30" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Yes"/>
+                        <connections>
+                            <action selector="acceptButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PCi-hR-HAL"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuO-jc-8vx">
+                        <rect key="frame" x="295" y="43" width="30" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="No"/>
+                        <connections>
+                            <action selector="rejectButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="znZ-8g-mqg"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="ProfPicView" destination="Dqf-QI-oaV" id="zmP-fb-k20"/>
-                <outlet property="button" destination="Pi8-Tc-QHJ" id="0YB-Of-pob"/>
+                <outlet property="acceptButton" destination="dXs-17-VqC" id="TqY-kT-W3V"/>
                 <outlet property="nameField" destination="8zE-1C-ySN" id="VI2-0E-Bhl"/>
                 <outlet property="placeField" destination="Sto-Qr-771" id="VpN-vW-P8j"/>
+                <outlet property="rejectButton" destination="MuO-jc-8vx" id="ckY-H4-b9I"/>
                 <outlet property="timeField" destination="A9v-fV-wZb" id="B1R-my-jDg"/>
             </connections>
             <point key="canvasLocation" x="17" y="75.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="reply.png" width="64" height="64"/>
-    </resources>
 </document>
