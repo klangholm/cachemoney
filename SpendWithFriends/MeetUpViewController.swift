@@ -38,19 +38,21 @@ class MeetUpViewController: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         //unfinished - test data
-        let date = datePicker.date
-        let time = getTimeFromDatePicker(datePicker: datePicker)
-        let testProfile = Profile(name: "Test", id: "TestID")
-        var meetup = MeetUp(venue: "Test Venue", date: date, address: "Test Address", time: time, recipient: testProfile)
-        if message.text != nil {
-            meetup.addMessage(message: message.text!)
+        if let sender = UserDefaults.standard.object(forKey: "profile") as? Profile{
+            let date = datePicker.date
+            let time = getTimeFromDatePicker(datePicker: datePicker)
+            let testProfile = Profile(name: "Test", id: "TestID")
+            let meetup = MeetUp(sender: sender, venue: "Test Venue", date: date, address: "Test Address", time: time, recipient: testProfile)
+            if message.text != nil {
+                meetup.addMessage(message: message.text!)
+            }
+            if phone.text != nil {
+                meetup.addPhone(phone: phone.text!)
+            }
+            print(meetup.getMessage)
+            print(meetup.getPhone)
+            //send to the database
         }
-        if phone.text != nil {
-            meetup.addPhone(phone: phone.text!)
-        }
-        print(meetup.getMessage)
-        print(meetup.getPhone)
-        //send to the database
     }
     /*
     // MARK: - Navigation

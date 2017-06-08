@@ -10,6 +10,7 @@ import Foundation
 
 class MeetUp: NSObject {
     
+    fileprivate var sender: Profile
     fileprivate var venue: String!
     fileprivate var date: Date!
     fileprivate var address: String!
@@ -20,6 +21,9 @@ class MeetUp: NSObject {
     fileprivate var read = false
     fileprivate var accepted: Bool?
     
+    var getSender: Profile!{
+        return sender
+    }
     var getVenue: String!{
         return venue
     }
@@ -56,7 +60,8 @@ class MeetUp: NSObject {
         return accepted
     }
     
-    init(venue: String, date: Date, address: String, time: String, recipient: Profile){
+    init(sender: Profile, venue: String, date: Date, address: String, time: String, recipient: Profile){
+        self.sender = sender
         self.venue = venue
         self.date = date
         self.address = address
