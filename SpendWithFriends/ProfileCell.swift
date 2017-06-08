@@ -37,6 +37,8 @@ class ProfileCell: UITableViewCell {
         self.profilePic.clipsToBounds = true
         self.profilePic.layer.borderWidth = 3.0
         self.profilePic.layer.borderColor = UIColor.lightGray.cgColor
+        
+        self.meetUpButton.layer.cornerRadius = 10
         self.name.text = profile.getName
         //set day of the week - figure out how to do that
     }

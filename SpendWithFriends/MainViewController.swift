@@ -75,7 +75,10 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
     func didRetrieveGeoData(m: [Merchant]) {
         SwiftSpinner.hide()
         self.merchants = m
-        addPins()
+        OperationQueue.main.addOperation({
+            self.addPins()
+        })
+
     }
     
     override func viewDidLoad() {
@@ -150,13 +153,14 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         }
         if let loc = locationManager.location?.coordinate {
             
-            let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 500, 500)
+            let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 1000, 1000)
+            //map?.setCenter(loc, animated: true)
             map?.setRegion(viewRegion, animated: true)
         }
         else {
             let loc = CLLocationCoordinate2D(latitude: 37.5407, longitude: -77.4360)
             
-            let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 500, 500)
+            let viewRegion = MKCoordinateRegionMakeWithDistance(loc, 1000, 1000)
             map?.setRegion(viewRegion, animated: true)
         }
         
@@ -175,6 +179,10 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         
         //meetups
         
+        let mvc = self.storyboard?.instantiateViewController(withIdentifier: "meetUpTableViewController") as! MeetUpTableViewController
+        self.addChildViewController(mvc)
+        self.meetupsView = mvc.view
+        self.meetupsView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
         
         //requests
@@ -199,6 +207,8 @@ class MainViewController: UIViewController, SlideMenuDelegate, MKMapViewDelegate
         case .meetups:
             self.navigationItem.title = "Meetups"
             containerView.backgroundColor = UIColor.blue
+            
+            containerView = meetupsView
             containerView.isHidden = false
             break
         case .requests:

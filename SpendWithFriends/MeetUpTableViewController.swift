@@ -10,7 +10,7 @@ import UIKit
 
 class MeetUpTableViewController: UITableViewController {
 
-    var meetups: [MeetUp]?
+    var meetups = [MeetUp]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
@@ -42,12 +42,12 @@ class MeetUpTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return meetups!.count
+        return meetups.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let meetup = meetups![indexPath.row]
+        let meetup = meetups[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
         cell.configureCell(meetup: meetup)
         

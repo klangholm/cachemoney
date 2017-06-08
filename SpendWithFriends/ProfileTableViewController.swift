@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
+class ProfileTableViewController: UITableViewController, MerchantUserDelegate {
     
-    var profiles: [Profile]?
+    var profiles = [Profile]()
     
     var selectedMerchant: Merchant!
     
@@ -18,6 +18,7 @@ class ProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         self.tableView.rowHeight = 95.0
+        self.tableView.allowsSelection = false
         //profiles = [Profile(name: "paul", custId: "test", username: "test username", password: "test password")]
         //profiles?.append(Profile(name: "paul", custId: "test", username: "test username", password: "test password"))
         self.tableView.reloadData()
@@ -32,7 +33,20 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = "Most Frequent Users at \(self.selectedMerchant.name)"//+selectedMerchant.name
+        self.navigationItem.title = "Others who frequent \(self.selectedMerchant.name)"//+selectedMerchant.name
+        let dh = DataHandler()
+        dh.muDelegate = self
+        dh.getProfilesForLocation(merch: selectedMerchant)
+    }
+    
+    func didRetrieveProfilesForLocation(profiles: [Profile]) {
+        self.profiles = profiles
+        OperationQueue.main.addOperation({
+            self.tableView.reloadData()
+        })
+        //self.tableView.reloadData()
+        //self.tableView.reloadSections([0], with: .fade)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,14 +63,15 @@ class ProfileTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return profiles!.count
+        return profiles.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let profile = profiles![indexPath.row]
+        let profile = profiles[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
         cell.configureCell(profile: profile)
+        cell.frame.size.width = self.view.frame.width
         cell.tapAction = { [weak self] (cell) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "meetUpViewController") as! MeetUpViewController

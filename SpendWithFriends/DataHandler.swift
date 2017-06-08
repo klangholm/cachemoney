@@ -30,6 +30,10 @@ protocol MapDataDelegate {
     func didRetrieveGeoData(m: [Merchant])
 }
 
+protocol MerchantUserDelegate {
+    func didRetrieveProfilesForLocation(profiles: [Profile])
+}
+
 class DataHandler {
     
     var user_id: String
@@ -37,12 +41,12 @@ class DataHandler {
     var lDelegate: loginDelegate?
     
     var auDelegate: addUserDelegate?
-    
 
     var amDelegate: addMeetUpDelegate?
 
     var mapDelegate: MapDataDelegate?
-
+    
+    var muDelegate: MerchantUserDelegate?
     
     init(id: String) {
         self.user_id = id
@@ -61,6 +65,7 @@ class DataHandler {
         
         return temp
     }
+    
     
     func getPurchases(){
         var purchases = [Purchase]()
@@ -89,10 +94,54 @@ class DataHandler {
         
     }
     
-    func getProfilesForLocation() -> [Profile] {
-        let temp = [Profile]()
+    func getProfilesForLocation(merch: Merchant){
+        var profs = [Profile]()
+        let url_string = "http://lukeporupski.com/newPhp/getUserIDFromPurchasesBasedOnMerchantID.php?merchant_id=\(merch.merchantId)"
         
-        return temp
+        let url = URL(string: url_string)
+        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
+            guard let data = data, error == nil else { return }
+            
+            do {
+                
+                let json = try JSONSerialization.jsonObject(with: data) as? [Any]
+                var count = 0
+                for item in json! {
+                    if let prof = item as? [String: Any] {
+                        var username = "temp"
+                        
+                        let newProf = Profile(name: prof["Name"] as! String, username: username, password: prof["Password"] as! String)
+                        profs.append(newProf)
+                        
+                        if profs.count == (json?.count)! - count {
+                            self.muDelegate?.didRetrieveProfilesForLocation(profiles: profs)
+                        }
+                    }
+                    else {
+                        count = count + 1
+                    }
+                }
+                
+                /*
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                let idk = json as? [String:String]
+                let t2 = json as? [String:Any]
+                let t3 = json as? [Any]
+                for prof in temp! {
+                    let newProf = Profile(name: prof["Name"]!, custId: prof["ID"]!, username: prof["Username"]!, password: prof["Password"]!)
+                    
+                    profs.append(newProf)
+                    
+                    if profs.count == temp?.count {
+                        self.muDelegate?.didRetrieveProfilesForLocation(profiles: profs)
+                    }
+                }*/
+                
+            } catch let error as NSError {
+                print(error)
+            }
+        }).resume()
+        
     }
     
     func getMerchantsFromPurchases(purchases: [Purchase]) {
