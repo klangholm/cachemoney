@@ -15,6 +15,11 @@ class MeetUpTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         self.tableView.rowHeight = 95.0
+        meetups = [MeetUp(sender: Profile(name: "Ronald MacDonald", username: "test username", password: "test password"), venue: "The Gym", date: Date(timeIntervalSince1970: TimeInterval()), time: "1:45:22", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password"))]
+        meetups.append(MeetUp(sender: Profile(name: "Dennis Reynolds", username: "test username", password: "test password"), venue: "Paddy's Pub", date: Date(timeIntervalSince1970: TimeInterval()), time: "12:20:13", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password")))
+        meetups.append(MeetUp(sender: Profile(name: "Dee Reynolds", username: "test username", password: "test password"), venue: "Acting Class", date: Date(timeIntervalSince1970: TimeInterval()), time: "11:23:54", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password")))
+        meetups.append(MeetUp(sender: Profile(name: "Charlie Kelly", username: "test username", password: "test password"), venue: "The Alley", date: Date(timeIntervalSince1970: TimeInterval()), time: "5:44:32", recipient: Profile(name: "Paul Jones", username: "test username", password: "test password"))
+        )
         //populate meetup list with meetups from the database that have been accepted
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
