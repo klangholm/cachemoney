@@ -9,13 +9,14 @@
 import UIKit
 
 
-class Profile : NSObject {
+class Profile : NSObject, URLSessionDataDelegate {
     
     fileprivate var name: String
     fileprivate var custId: String
     fileprivate var pic: UIImage?
     fileprivate var username: String
     fileprivate var password: String
+    
     
     init(name: String, custId: String, username: String, password: String) {
         self.name = name
