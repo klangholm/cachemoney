@@ -15,35 +15,53 @@ class MessageCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBOutlet weak var NameField: UITextField!
-    @IBOutlet weak var PlaceField: UITextField!
-    @IBOutlet weak var TimeField: UITextField!
+    @IBOutlet weak var nameField: UILabel!
+    @IBOutlet weak var placeField: UILabel!
+    @IBOutlet weak var timeField: UILabel!
+    
+   
     @IBOutlet weak var ProfPicView: UIImageView!
     @IBOutlet weak var button: UIButton!
+    var wasTrue: Bool = false
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         
-        if selected == true {
-            self.backgroundColor = UIColor .blue
+        if wasTrue == true {
+            self.backgroundColor = UIColor.white
+            button.backgroundColor = UIColor.gray
+            button.isEnabled = false
+            wasTrue = false
+        }
+        else if wasTrue == false || selected == true {
+            self.backgroundColor = UIColor.gray
             button.backgroundColor = UIColor.white
             button.isEnabled = true;
+            wasTrue = true;
         }
-        
+//        else {
+//           // selected = false
+//            self.backgroundColor = UIColor.white
+//            button.backgroundColor = UIColor.gray
+//            button.isEnabled = false
+//        }
+//        
         // Configure the view for the selected state
     }
     
+    
+    
     func configureCell(meetup: MeetUp) {
+        
         ProfPicView.image = meetup.getSender.getPic
         self.ProfPicView.layer.cornerRadius = 0.5 * self.ProfPicView.bounds.size.width
         self.ProfPicView.clipsToBounds = true
-        self.NameField.text = meetup.getSender.getName
-        self.TimeField.text = meetup.getTime
-        self.PlaceField.text = meetup.getVenue
+        self.nameField.text = meetup.getSender.getName
+        self.timeField.text = meetup.getTime
+        self.placeField.text = meetup.getVenue
         
         
-        button.backgroundColor = UIColor.gray
-        button.isEnabled = false;
+//        button.backgroundColor = UIColor.gray
+//        button.isEnabled = false;
         
         
     }

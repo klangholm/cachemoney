@@ -13,7 +13,7 @@ class Profile : NSObject, URLSessionDataDelegate {
     
     fileprivate var name: String
     fileprivate var custId: String
-    fileprivate var pic: UIImage?
+    fileprivate var pic: UIImage = UIImage(named: "Unknown.png")!
     fileprivate var username: String
     fileprivate var password: String
     
@@ -39,7 +39,7 @@ class Profile : NSObject, URLSessionDataDelegate {
     }
     
     var getPic: UIImage {
-        return self.pic!
+        return self.pic
     }
     
     var getUsername: String {
