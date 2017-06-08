@@ -35,14 +35,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-fk-NTC">
-                                <rect key="frame" x="91" y="199.5" width="193" height="119.5"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq7-p9-q7A">
                                 <rect key="frame" x="156" y="607" width="63" height="30"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <action selector="continueButtonPressed:" destination="Iev-CZ-Upo" eventType="touchUpInside" id="nNH-lM-KPW"/>
+                                    <action selector="continueButtonPressed:" destination="Iev-CZ-Upo" eventType="touchUpInside" id="i4P-dd-59j"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o05-Ox-R4c">
@@ -66,15 +63,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bvi-fk-NTC" firstAttribute="top" secondItem="8b3-0o-inI" secondAttribute="bottom" constant="33" id="0CD-ZZ-Bkl"/>
-                            <constraint firstItem="Jjh-cP-dfz" firstAttribute="top" secondItem="Bvi-fk-NTC" secondAttribute="bottom" constant="23" id="2QX-ht-vBI"/>
                             <constraint firstItem="qZ2-jE-fZV" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="70" id="6ZF-5F-gcA"/>
                             <constraint firstItem="oq7-p9-q7A" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="140" id="9gs-IY-nLM"/>
                             <constraint firstItem="bLn-kH-n3L" firstAttribute="top" secondItem="oq7-p9-q7A" secondAttribute="bottom" constant="30" id="ACX-g0-iQJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oq7-p9-q7A" secondAttribute="trailing" constant="140" id="Hbx-CI-40X"/>
                             <constraint firstItem="o05-Ox-R4c" firstAttribute="top" secondItem="qZ2-jE-fZV" secondAttribute="bottom" constant="16" id="Neh-Dw-lI2"/>
-                            <constraint firstItem="Bvi-fk-NTC" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="75" id="Npz-h3-IdH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Bvi-fk-NTC" secondAttribute="trailing" constant="75" id="Ptk-4M-Ljm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qZ2-jE-fZV" secondAttribute="trailing" constant="70" id="aTs-93-rbq"/>
                             <constraint firstItem="8b3-0o-inI" firstAttribute="top" secondItem="aR8-5w-dem" secondAttribute="bottom" constant="46" id="bCS-zc-ADI"/>
                             <constraint firstItem="Jjh-cP-dfz" firstAttribute="leading" secondItem="FKK-jE-dcp" secondAttribute="leadingMargin" constant="70" id="buf-b9-Not"/>
@@ -94,7 +87,6 @@
                         <outlet property="firstName" destination="Jjh-cP-dfz" id="BVe-5b-uul"/>
                         <outlet property="lastName" destination="qZ2-jE-fZV" id="WyW-6g-rAr"/>
                         <outlet property="password" destination="ZEN-Fq-RcD" id="cON-dH-yIb"/>
-                        <outlet property="profilePicture" destination="Bvi-fk-NTC" id="T4A-zf-KlN"/>
                         <outlet property="username" destination="o05-Ox-R4c" id="HPi-aE-Ii9"/>
                     </connections>
                 </viewController>
